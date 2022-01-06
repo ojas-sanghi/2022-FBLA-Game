@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2022 FBLA Game", "2022 FBLA Game.csproj", "{DFEE1B4B-71FE-4CD6-8DA9-85DAE484E928}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFEE1B4B-71FE-4CD6-8DA9-85DAE484E928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEE1B4B-71FE-4CD6-8DA9-85DAE484E928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEE1B4B-71FE-4CD6-8DA9-85DAE484E928}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{DFEE1B4B-71FE-4CD6-8DA9-85DAE484E928}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{DFEE1B4B-71FE-4CD6-8DA9-85DAE484E928}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{DFEE1B4B-71FE-4CD6-8DA9-85DAE484E928}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
