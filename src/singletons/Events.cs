@@ -1,5 +1,5 @@
 using System;
-using Goodt;
+using Godot;
 
 public class Events : Node
 {
@@ -12,6 +12,6 @@ public class Events : Node
 
     public override void _Ready()
     {
-        OS.WindowMaximised = true;
+        // OS.WindowMaximised = true;
     }
 }

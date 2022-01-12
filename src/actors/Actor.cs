@@ -3,11 +3,11 @@ using System;
 
 public class Actor : KinematicBody2D
 {
-    const Vector2 FLOOR_NORMAL = Vector2.UP;
+    protected Vector2 FLOOR_NORMAL = Vector2.Up;
     
-    [Export] Vector2 speed = new Vector2(300, 1000);
-    [Export] int gravity = 2500;
-    [Export] int gravityLimit = 800;
+    [Export] protected Vector2 speed = new Vector2(300, 1000);
+    [Export] protected int gravity = 2500;
+    [Export] protected int gravityLimit = 800;
 
-    Vector2 velocity = Vector2.ZERO;
+    protected Vector2 velocity = Vector2.Zero;
 }
