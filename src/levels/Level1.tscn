@@ -9,10 +9,10 @@ extents = Vector2( 30.7092, 37 )
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 273, 155 )
+position = Vector2( 412, 81 )
 
 [node name="Sprite" type="StaticBody2D" parent="."]
-position = Vector2( 518, 261 )
+position = Vector2( 499, 518 )
 scale = Vector2( 16.6563, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite"]

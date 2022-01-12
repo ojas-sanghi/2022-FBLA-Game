@@ -16,8 +16,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://src/singletons/Events.cs"
-PlayerStats="*res://src/singletons/PlayerStats.cs"
 Globals="*res://src/singletons/Globals.cs"
+PlayerInfo="*res://src/singletons/PlayerInfo.cs"
 
 [input]
 
