@@ -4,10 +4,12 @@ using Godot;
 public class Events : Node
 {
     public static event Action example;
+    // public static event 
 
     //////////////////////////
 
     public static void publishExample() => example?.Invoke();
+    
 
 
     public override void _Ready()

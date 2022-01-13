@@ -3,11 +3,17 @@ using Godot.Collections;
 
 public class PlayerInfo : Node
 {
-    public static int gold = 2000;
+    public static int gold = 0;
+    public static int score = 0;
 
     public static PlayerInfo Instance;
 
     public PlayerInfo()
+    {
+        Instance = this;
+    }
+
+    public override void _Ready()
     {
         Instance = this;
 
@@ -18,13 +24,8 @@ public class PlayerInfo : Node
         }
     }
 
-    public override void _Ready()
-    {
-        Instance = this;
-    }
-
     public void OnCoinCollected()
     {
-
+        
     }
 }
