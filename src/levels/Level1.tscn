@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://src/props/GoldCoin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/props/AlienCoin.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.7092, 37 )
@@ -21,3 +23,17 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Sprite"]
 texture = ExtResource( 2 )
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="GoldCoin" parent="Coins" instance=ExtResource( 3 )]
+position = Vector2( 715, 376 )
+
+[node name="GoldCoin2" parent="Coins" instance=ExtResource( 3 )]
+position = Vector2( 850, 422 )
+
+[node name="AlienCoin" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 163, 339 )
+
+[node name="AlienCoin2" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 81, 421 )

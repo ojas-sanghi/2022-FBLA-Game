@@ -17,15 +17,17 @@ public class PlayerInfo : Node
     {
         Instance = this;
 
-        var coins = GetTree().GetNodesInGroup("coins");
-        foreach (Node c in coins)
-        {
-            c.Connect("coin_collected", this, nameof(OnCoinCollected));
-        }
+        Events.coinCollected += OnCoinCollected;
     }
 
-    public void OnCoinCollected()
+    public override void _ExitTree()
     {
-        
+        Events.coinCollected -= OnCoinCollected;
+    }
+
+    public void OnCoinCollected(BaseCoin coin)
+    {
+        gold += coin.goldValue;
+        score += coin.scoreValue;
     }
 }
