@@ -1,21 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://src/props/GoldCoin.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/props/AlienCoin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/GUI/ScoreCounter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/GUI/ScoreMultiplier.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/buttons/ScoreMultiplierBuy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/levels/LevelEndArea.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/placeholder tileset.png" type="Texture" id=9]
+[ext_resource path="res://assets/placeholder tileset.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.7092, 37 )
-
-[sub_resource type="TileSet" id=2]
+[resource]
 0/name = "placeholder tileset.png 0"
-0/texture = ExtResource( 9 )
+0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 576, 192 )
@@ -37,61 +26,3 @@ extents = Vector2( 30.7092, 37 )
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-
-[node name="Level1" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 412, 81 )
-
-[node name="Sprite" type="StaticBody2D" parent="."]
-position = Vector2( 499, 518 )
-scale = Vector2( 16.6563, 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite"]
-position = Vector2( -0.330208, 7 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Sprite"]
-texture = ExtResource( 2 )
-
-[node name="Coins" type="Node2D" parent="."]
-
-[node name="GoldCoin" parent="Coins" instance=ExtResource( 3 )]
-position = Vector2( 715, 376 )
-
-[node name="GoldCoin2" parent="Coins" instance=ExtResource( 3 )]
-position = Vector2( 850, 422 )
-
-[node name="AlienCoin" parent="Coins" instance=ExtResource( 4 )]
-position = Vector2( 163, 339 )
-
-[node name="AlienCoin2" parent="Coins" instance=ExtResource( 4 )]
-position = Vector2( 81, 421 )
-
-[node name="ScoreMultiplierBuy" parent="Coins" instance=ExtResource( 7 )]
-margin_left = 25.0
-margin_top = 27.0
-margin_right = 239.0
-margin_bottom = 134.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ScoreCounter" parent="CanvasLayer" instance=ExtResource( 5 )]
-margin_left = 961.0
-margin_top = 6.0
-margin_right = 1004.0
-margin_bottom = 20.0
-
-[node name="ScoreMultiplier" parent="CanvasLayer" instance=ExtResource( 6 )]
-margin_left = 880.0
-margin_top = 22.0
-margin_right = 950.0
-margin_bottom = 36.0
-
-[node name="LevelEndArea" parent="." instance=ExtResource( 8 )]
-position = Vector2( 688, 178 )
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
-cell_size = Vector2( 16, 16 )
-format = 1
