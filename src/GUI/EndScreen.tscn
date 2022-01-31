@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/Font100.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/Font50.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/GUI/ScoreCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/GUI/EndScreen.cs" type="Script" id=4]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinText" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "YOU WIN!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreCounter" parent="." instance=ExtResource( 3 )]
+margin_left = 26.0
+margin_top = 110.0
+margin_right = 204.0
+margin_bottom = 167.0
+custom_fonts/font = ExtResource( 2 )
+
+[node name="NameEnterLabel" type="Label" parent="."]
+margin_left = 436.0
+margin_top = 261.0
+margin_right = 1504.0
+margin_bottom = 318.0
+custom_fonts/font = ExtResource( 2 )
+text = "Enter your name to save your highscore!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameEnter" type="LineEdit" parent="."]
+margin_left = 450.0
+margin_top = 357.0
+margin_right = 1388.0
+margin_bottom = 484.0
+custom_fonts/font = ExtResource( 2 )
+expand_to_text_length = true
+placeholder_text = "Phuphu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubmitButton" type="Button" parent="."]
+margin_left = 784.0
+margin_top = 522.0
+margin_right = 981.0
+margin_bottom = 585.0
+custom_fonts/font = ExtResource( 2 )
+text = "Submit"
+
+[connection signal="pressed" from="SubmitButton" to="." method="OnSubmitButtonPressed"]

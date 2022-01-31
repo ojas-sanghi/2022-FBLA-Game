@@ -20,6 +20,6 @@ public class Events : Node
 
     public override void _Ready()
     {
-        // OS.WindowMaximised = true;
+      OS.WindowMaximized = true;
     }
 }

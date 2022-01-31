@@ -3,7 +3,7 @@ using Godot.Collections;
 
 public class PlayerInfo : Node
 {
-  public static int gold = 0;
+  public static int gold = 50;
   public static int score = 0;
 
   public static int scoreMultiplier = 1;
