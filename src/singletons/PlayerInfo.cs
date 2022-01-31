@@ -3,29 +3,41 @@ using Godot.Collections;
 
 public class PlayerInfo : Node
 {
-    public static int gold = 0;
-    public static int score = 0;
+  public static int gold = 0;
+  public static int score = 0;
 
-    public static PlayerInfo Instance;
+  public static int scoreMultiplier = 1;
 
-    public PlayerInfo()
-    {
-        Instance = this;
-    }
+  public static PlayerInfo Instance;
 
-    public override void _Ready()
-    {
-        Instance = this;
+  public PlayerInfo()
+  {
+    Instance = this;
+  }
 
-        var coins = GetTree().GetNodesInGroup("coins");
-        foreach (Node c in coins)
-        {
-            c.Connect("coin_collected", this, nameof(OnCoinCollected));
-        }
-    }
+  public override void _Ready()
+  {
+    Instance = this;
 
-    public void OnCoinCollected()
-    {
-        
-    }
+    Events.coinCollected += OnCoinCollected;
+    Events.scoreMultiplierBought += OnScoreMultiplierBought;
+  }
+
+  public override void _ExitTree()
+  {
+    Events.coinCollected -= OnCoinCollected;
+    Events.scoreMultiplierBought -= OnScoreMultiplierBought;
+  }
+
+  void OnCoinCollected(BaseCoin coin)
+  {
+    gold += coin.goldValue;
+    score += coin.scoreValue * scoreMultiplier;
+    Events.publishScoreChanged();
+  }
+
+  void OnScoreMultiplierBought(int multiplier)
+  {
+    scoreMultiplier = multiplier;
+  }
 }

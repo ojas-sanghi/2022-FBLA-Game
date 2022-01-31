@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/buttons/ScoreMultiplierBuy.cs" type="Script" id=1]
+
+[node name="ScoreMultiplierBuy" type="Button"]
+margin_right = 214.0
+margin_bottom = 107.0
+text = "buy score x2"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="OnScoreMultiplierBuyPressed"]
