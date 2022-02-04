@@ -1,6 +1,6 @@
-using Godot;
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
 
 public class NextLevelButton : Button
 {
@@ -16,7 +16,7 @@ public class NextLevelButton : Button
       return;
     }
 
-    Globals.Instance.currentLevel = (Enums.Levels) nextLevelIndex;
+    Globals.Instance.currentLevel = (Enums.Levels)nextLevelIndex;
     SceneChanger.Instance.GoToPackedScene(Globals.Instance.levels[Globals.Instance.currentLevel]);
   }
 }

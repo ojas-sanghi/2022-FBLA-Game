@@ -5,13 +5,19 @@ public class EndScreen : Control
 {
   string name;
 
+  Control saveScore;
+  ScrollContainer leaderboard;
+
   public override void _Ready()
   {
+    saveScore = GetNode<Control>("SaveScore");
+    leaderboard = GetNode<ScrollContainer>("Leaderboard");
   }
 
   void OnSubmitButtonPressed()
   {
-    name = GetNode<LineEdit>("NameEnter").Text;
+    //TODO: ALLOW DUPLICATE NAMES!
+    name = GetNode<LineEdit>("SaveScore/NameEnter").Text;
     Globals.Instance.highScores.Add(name, PlayerInfo.score);
 
     File scoresFile = new File();
@@ -20,5 +26,11 @@ public class EndScreen : Control
     scoresFile.Close();
 
     GD.Print(Globals.Instance.highScores);
+  }
+
+  void OnToggleLeaderboardPressed()
+  {
+    saveScore.Visible = !saveScore.Visible;
+    leaderboard.Visible = !leaderboard.Visible;
   }
 }

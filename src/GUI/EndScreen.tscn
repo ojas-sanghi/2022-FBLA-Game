@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/Font100.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/Font50.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/GUI/ScoreCounter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/GUI/EndScreen.cs" type="Script" id=4]
+[ext_resource path="res://src/GUI/Leaderboard.tscn" type="PackedScene" id=5]
 
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
@@ -29,7 +30,14 @@ margin_right = 204.0
 margin_bottom = 167.0
 custom_fonts/font = ExtResource( 2 )
 
-[node name="NameEnterLabel" type="Label" parent="."]
+[node name="SaveScore" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameEnterLabel" type="Label" parent="SaveScore"]
 margin_left = 436.0
 margin_top = 261.0
 margin_right = 1504.0
@@ -40,7 +48,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NameEnter" type="LineEdit" parent="."]
+[node name="NameEnter" type="LineEdit" parent="SaveScore"]
 margin_left = 450.0
 margin_top = 357.0
 margin_right = 1388.0
@@ -52,7 +60,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SubmitButton" type="Button" parent="."]
+[node name="SubmitButton" type="Button" parent="SaveScore"]
 margin_left = 784.0
 margin_top = 522.0
 margin_right = 981.0
@@ -60,4 +68,19 @@ margin_bottom = 585.0
 custom_fonts/font = ExtResource( 2 )
 text = "Submit"
 
-[connection signal="pressed" from="SubmitButton" to="." method="OnSubmitButtonPressed"]
+[node name="Leaderboard" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="ToggleLeaderboard" type="Button" parent="."]
+margin_left = 687.0
+margin_top = 42.0
+margin_right = 1227.0
+margin_bottom = 105.0
+custom_fonts/font = ExtResource( 2 )
+text = "Toggle leaderboard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="SaveScore/SubmitButton" to="." method="OnSubmitButtonPressed"]
+[connection signal="pressed" from="ToggleLeaderboard" to="." method="OnToggleLeaderboardPressed"]
