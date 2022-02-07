@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://src/GUI/LeaderboardLabel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/GUI/Leaderboard.cs" type="Script" id=2]
 
 [sub_resource type="Theme" id=1]
@@ -19,13 +20,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="LeaderboardLabels" type="VBoxContainer" parent="."]
 margin_right = 1468.0
 margin_bottom = 774.0
-size_flags_horizontal = 11
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 1 )
-custom_constants/vseparation = 20
-columns = 2
+custom_constants/separation = 20
+
+[node name="LeaderboardLabel" parent="LeaderboardLabels" instance=ExtResource( 1 )]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_right = 1467.0
+margin_bottom = 57.0
+
+[node name="LeaderboardLabel2" parent="LeaderboardLabels" instance=ExtResource( 1 )]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 77.0
+margin_right = 1467.0
+margin_bottom = 134.0
 
 [connection signal="visibility_changed" from="." to="." method="OnLeaderboardVisibilityChanged"]

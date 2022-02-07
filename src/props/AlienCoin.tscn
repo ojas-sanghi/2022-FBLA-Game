@@ -7,4 +7,4 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
-rotation = 3.49589
+self_modulate = Color( 0.0980392, 0.890196, 0.109804, 1 )

@@ -4,13 +4,13 @@ using Godot;
 
 public class Leaderboard : ScrollContainer
 {
-  GridContainer grid;
+  VBoxContainer labels;
   Font font50;
   Theme fontTheme;
 
   public override void _Ready()
   {
-    grid = GetNode<GridContainer>("GridContainer");
+    labels = GetNode<VBoxContainer>("LeaderboardLabels");
 
     font50 = GD.Load<DynamicFont>("res://assets/fonts/Font50.tres");
     fontTheme = new Theme();
@@ -26,26 +26,15 @@ public class Leaderboard : ScrollContainer
 
   void constructList()
   {
-    // TODO: SORT BY HIGHEST SCORE
-    List<Node> gridChildren = grid.GetChildren().Cast<Node>().ToList<Node>();
-    gridChildren.ForEach(child => child.QueueFree());
+    List<LeaderboardLabel> labelChildren = labels.GetChildren().Cast<LeaderboardLabel>().ToList<LeaderboardLabel>();
+    labelChildren.ForEach(child => child.QueueFree());
 
-    foreach (KeyValuePair<string, int> highScore in Globals.Instance.highScores)
+    List <KeyValuePair<string, int>> sortedScores = Globals.Instance.highScores.OrderByDescending(x => x.Value).ToList();
+
+    foreach (KeyValuePair<string, int> highScore in sortedScores)
     {
-      Label nameLabel = new Label();
-      nameLabel.Autowrap = true;
-      nameLabel.SizeFlagsHorizontal = (int)SizeFlags.ExpandFill;
-      // font color
-      nameLabel.Theme = fontTheme;
-      nameLabel.Text = highScore.Key;
-
-      Label scoreLabel = new Label();
-      scoreLabel.SizeFlagsHorizontal = (int)SizeFlags.ShrinkEnd;
-      scoreLabel.Theme = fontTheme;
-      scoreLabel.Text = highScore.Value.ToString();
-
-      grid.AddChild(nameLabel);
-      grid.AddChild(scoreLabel);
+      LeaderboardLabel label = new LeaderboardLabel(highScore.Key, highScore.Value);
+      labels.AddChild(label);
     }
   }
 }

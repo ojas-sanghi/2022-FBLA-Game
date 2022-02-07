@@ -74,6 +74,10 @@ text = "Submit"
 
 [node name="Leaderboard" parent="." instance=ExtResource( 5 )]
 visible = false
+margin_left = 18.68
+margin_top = 55.96
+margin_right = 43.8
+margin_bottom = 81.6
 
 [node name="ToggleLeaderboard" type="Button" parent="."]
 margin_left = 687.0
