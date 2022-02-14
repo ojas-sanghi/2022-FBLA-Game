@@ -10,15 +10,15 @@ public class EndScreen : Control
 
   public override void _Ready()
   {
-    saveScore = GetNode<Control>("SaveScore");
-    leaderboard = GetNode<ScrollContainer>("Leaderboard");
+	saveScore = GetNode<Control>("SaveScore");
+	leaderboard = GetNode<ScrollContainer>("Leaderboard");
   }
 
   void OnSubmitButtonPressed()
   {
-    //TODO: ALLOW DUPLICATE NAMES!
-    name = GetNode<LineEdit>("SaveScore/NameEnter").Text;
-    Globals.Instance.highScores.Add(name, PlayerInfo.score);
+	//TODO: ALLOW DUPLICATE NAMES!
+	name = GetNode<LineEdit>("SaveScore/NameEnter").Text;
+	Globals.Instance.highScores.Add(name, PlayerInfo.score);
 
 	File scoresFile = new File();
 	scoresFile.Open("user://highscores.save", File.ModeFlags.Write);
@@ -30,7 +30,7 @@ public class EndScreen : Control
 
   void OnToggleLeaderboardPressed()
   {
-    saveScore.Visible = !saveScore.Visible;
-    leaderboard.Visible = !leaderboard.Visible;
+	saveScore.Visible = !saveScore.Visible;
+	leaderboard.Visible = !leaderboard.Visible;
   }
 }

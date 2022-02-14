@@ -1,18 +1,25 @@
 extends Area2D
 
-export var speed : int = 100
+export var speed : int = 2
 export var moveDist : int = 100
 
-onready var startX : int = position.x
-onready var targetX : int = position.x + moveDist
+var hit_right_extreme : bool = false
+var hit_left_extreme : bool = true
+onready var rightEnd = position.x + moveDist
+onready var leftEnd = position.x - moveDist
 
-func _process (delta):
-	position.x = move_to(position.x, targetX, speed * delta)
-	if position.x == targetX:
-		if targetX == startX:
-			targetX = position.x + moveDist
-		else:
-			targetX = startX
-
-func move_to (current, to,step):
-	var new = current
+func _process(delta):
+	if position.x >= rightEnd:
+		hit_right_extreme = true
+		hit_left_extreme = false
+	elif position.x <= leftEnd:
+		hit_left_extreme = true
+		hit_right_extreme = false
+	
+	if hit_right_extreme == true:
+		position.x -= speed
+	elif hit_left_extreme == true:
+		position.x += speed
+	print(hit_right_extreme)
+	print(hit_left_extreme)
+	print(position.x)
