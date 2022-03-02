@@ -20,6 +20,3 @@ func _process(delta):
 		position.x -= speed
 	elif hit_left_extreme == true:
 		position.x += speed
-	print(hit_right_extreme)
-	print(hit_left_extreme)
-	print(position.x)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/Font100.tres" type="DynamicFont" id=1]
+[ext_resource path="res://PlayButton.cs" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Font50.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/GUI/QuitButton.cs" type="Script" id=4]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 489.0
+margin_top = 170.0
+margin_right = 1505.0
+margin_bottom = 283.0
+custom_fonts/font = ExtResource( 1 )
+text = "Space FBLA Game!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 904.0
+margin_top = 518.0
+margin_right = 1023.0
+margin_bottom = 581.0
+custom_fonts/font = ExtResource( 3 )
+text = "Play"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 907.0
+margin_top = 634.0
+margin_right = 1034.0
+margin_bottom = 697.0
+custom_fonts/font = ExtResource( 3 )
+text = "Quit"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="OnPlayButtonPressed"]
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="OnQuitButtonPressed"]

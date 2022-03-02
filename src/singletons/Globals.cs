@@ -26,7 +26,8 @@ public class Globals : Node
     levels = new Dictionary<Enums.Levels, PackedScene>()
         {
           { Enums.Levels.Level1, GD.Load<PackedScene>("res://src/levels/Level1.tscn") },
-          { Enums.Levels.Level2, GD.Load<PackedScene>("res://src/levels/Level2.tscn") }
+          { Enums.Levels.Level2, GD.Load<PackedScene>("res://src/levels/Level2.tscn") },
+          { Enums.Levels.Level3, GD.Load<PackedScene>("res://src/levels/Level3.tscn") }
         };
 
     File scoresFile = new File();
