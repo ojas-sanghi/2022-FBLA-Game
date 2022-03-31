@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/placeholder tileset.png-7571258c852b4355a512056cebcb0ca2.stex"
+path="res://.import/space tileset.PNG-174f57f22d305eea44122aa4bf6d6788.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholder tileset.png"
-dest_files=[ "res://.import/placeholder tileset.png-7571258c852b4355a512056cebcb0ca2.stex" ]
+source_file="res://assets/space tileset.PNG"
+dest_files=[ "res://.import/space tileset.PNG-174f57f22d305eea44122aa4bf6d6788.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

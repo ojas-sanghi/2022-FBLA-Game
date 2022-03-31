@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/new tileset.png-fc2d7bb42785e6e928a9f2d1e41b2c69.stex"
+path="res://.import/world2bg1.png-b9f5a543b32a0c6eb4cd2437aff42af4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/new tileset.png"
-dest_files=[ "res://.import/new tileset.png-fc2d7bb42785e6e928a9f2d1e41b2c69.stex" ]
+source_file="res://assets/world2bg1.png"
+dest_files=[ "res://.import/world2bg1.png-b9f5a543b32a0c6eb4cd2437aff42af4.stex" ]
 
 [params]
 
