@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:mono-3.3.2
+      image: barichello/godot-ci:mono-3.4.2
 
     steps:
     - uses: actions/checkout@v2
@@ -99,7 +99,7 @@ jobs:
             extension: .html
             type: executable
     container:
-      image: barichello/godot-ci:mono-3.3.2
+      image: barichello/godot-ci:mono-3.4.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
