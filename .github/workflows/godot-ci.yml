@@ -183,8 +183,8 @@ jobs:
         with:
           files: ${{ steps.archive.outputs.path }}
           tag_name: "latestt"
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # env:
+            # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - name: Upload Release Asset
       #   uses: ncipollo/release-action@v1.10.0
       #   with:
