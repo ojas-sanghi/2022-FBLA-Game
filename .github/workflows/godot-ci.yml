@@ -66,7 +66,7 @@ jobs:
           tag_name: latest
       - name: Create/Update Latest Release
         id: create_release
-        uses: ncipollo/release-action@v1.8.6
+        uses: ncipollo/release-action@v1.10.0
         with:
           name: Latest Release
           tag: "latest"
@@ -178,11 +178,16 @@ jobs:
           fi
           echo "::set-output name=path::${filePath}"
           echo "::set-output name=filename::${filename}"
-      - name: Create and Upload Release
-        uses: softprops/action-gh-release@v1
+      # - name: Create and Upload Release
+      #   uses: softprops/action-gh-release@v1
+      #   with:
+      #     files: ${{ steps.archive.outputs.path }}
+      #     tag_name: "latest"
+      - name: Upload Release Asset
+        uses: ncipollo/release-action@v1.10.0
         with:
-          files: ${{ steps.archive.outputs.path }}
-      # - name: Upload Release Asset
+          artifacts: ${{ steps.archive.outputs.path }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       #   id: upload-release-asset
       #   uses: actions/upload-release-asset@v1
       #   env:
