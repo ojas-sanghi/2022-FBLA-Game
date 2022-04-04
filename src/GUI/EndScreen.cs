@@ -39,8 +39,6 @@ public class EndScreen : Control
     scoresFile.Open("user://highscores.save", File.ModeFlags.Write);
     scoresFile.StoreLine(JSON.Print(Globals.Instance.highScores));
     scoresFile.Close();
-
-    GD.Print(Globals.Instance.highScores);
   }
 
   void OnToggleLeaderboardPressed()
