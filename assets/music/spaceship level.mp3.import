@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spaceship level.mp3-ae8a228fe7af940ac319c9f74c647d58.mp3str"
+
+[deps]
+
+source_file="res://assets/music/spaceship level.mp3"
+dest_files=[ "res://.import/spaceship level.mp3-ae8a228fe7af940ac319c9f74c647d58.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

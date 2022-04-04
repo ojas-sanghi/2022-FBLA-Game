@@ -12,7 +12,7 @@ public class Leaderboard : ScrollContainer
   {
     labels = GetNode<VBoxContainer>("LeaderboardLabels");
 
-    font50 = GD.Load<DynamicFont>("res://assets/fonts/Font50.tres");
+    font50 = GD.Load<DynamicFont>("res://assets/fonts/ArcadeFont35.tres");
     fontTheme = new Theme();
     fontTheme.DefaultFont = font50;
 

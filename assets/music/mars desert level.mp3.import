@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mars desert level.mp3-d9821a11a45cf33369aba4c033afdff9.mp3str"
+
+[deps]
+
+source_file="res://assets/music/mars desert level.mp3"
+dest_files=[ "res://.import/mars desert level.mp3-d9821a11a45cf33369aba4c033afdff9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

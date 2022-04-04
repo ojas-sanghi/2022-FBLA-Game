@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/GUI/ScoreCounter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/GUI/ScoreMultiplier.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/GUI/GoldCounter.tscn" type="PackedScene" id=3]
+
+[node name="ScoreAndMultiplierHUD" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreCounter" parent="." instance=ExtResource( 1 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 181.0
+margin_bottom = 15.0
+
+[node name="ScoreMultiplier" parent="." instance=ExtResource( 2 )]
+margin_top = 35.0
+margin_right = 181.0
+margin_bottom = 50.0
+
+[node name="GoldCounter" parent="." instance=ExtResource( 3 )]
+margin_top = 70.0
+margin_right = 181.0
+margin_bottom = 85.0

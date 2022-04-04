@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/fonts/Font100.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/fonts/Font50.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/ArcadeFont75.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/ArcadeFont35.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/GUI/ScoreCounter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/GUI/EndScreen.cs" type="Script" id=4]
 [ext_resource path="res://src/GUI/Leaderboard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/GUI/ButtonTheme.tres" type="Theme" id=6]
 
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
@@ -19,9 +20,9 @@ __meta__ = {
 }
 
 [node name="WinText" type="Label" parent="."]
-margin_left = 752.0
+margin_left = 707.0
 margin_top = 77.0
-margin_right = 1290.0
+margin_right = 1425.0
 margin_bottom = 190.0
 custom_fonts/font = ExtResource( 1 )
 text = "YOU WIN!!"
@@ -46,12 +47,12 @@ __meta__ = {
 }
 
 [node name="NameEnterLabel" type="Label" parent="SaveScore"]
-margin_left = 456.0
-margin_top = 268.0
-margin_right = 1524.0
-margin_bottom = 325.0
+margin_left = 315.0
+margin_top = 273.0
+margin_right = 1760.0
+margin_bottom = 330.0
 custom_fonts/font = ExtResource( 2 )
-text = "Enter your name to save your highscore!"
+text = "Enter your name to save your highscore"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -70,21 +71,24 @@ __meta__ = {
 
 [node name="SubmitButton" type="Button" parent="SaveScore"]
 margin_left = 896.0
-margin_top = 510.0
-margin_right = 1093.0
-margin_bottom = 573.0
-custom_fonts/font = ExtResource( 2 )
+margin_top = 492.0
+margin_right = 1166.0
+margin_bottom = 566.0
+theme = ExtResource( 6 )
 text = "Submit"
 
 [node name="ResultLabel" type="Label" parent="SaveScore"]
-margin_left = 544.0
-margin_top = 584.0
-margin_right = 1479.0
-margin_bottom = 641.0
+margin_left = 362.0
+margin_top = 586.0
+margin_right = 1662.0
+margin_bottom = 643.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "Error: duplicate names not allowed!"
+text = "Error: duplicate names not allowed"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Leaderboard" parent="." instance=ExtResource( 5 )]
 visible = false
@@ -94,11 +98,11 @@ margin_right = 43.8
 margin_bottom = 81.6
 
 [node name="ToggleLeaderboard" type="Button" parent="."]
-margin_left = 728.0
-margin_top = 941.0
-margin_right = 1320.0
-margin_bottom = 1004.0
-custom_fonts/font = ExtResource( 2 )
+margin_left = 607.0
+margin_top = 1007.0
+margin_right = 1440.0
+margin_bottom = 1082.0
+theme = ExtResource( 6 )
 text = "Toggle leaderboard"
 __meta__ = {
 "_edit_use_anchors_": false

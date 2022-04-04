@@ -9,8 +9,6 @@ public class Player : Actor
   // used to keep track of current animation to be played
   string _anim = "";
 
-  bool playerAlive = true;
-
   public override void _Ready()
   {
     base._Ready();
@@ -20,9 +18,6 @@ public class Player : Actor
 
   public override void _PhysicsProcess(float delta)
   {
-    if (!playerAlive)
-      return;
-
     bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0;
 
     Vector2 direction = GetDirection();
@@ -124,20 +119,26 @@ public class Player : Actor
   async void OnPlayerDied()
   {
     // stop movement
-    playerAlive = false;
+    SetPhysicsProcess(false);
 
     // reset gold earned
     PlayerInfo.Instance.resetGoldEarned();
 
     // play death anim
-    sprite.Play("death");
-    await ToSignal(sprite, "animation_finished");
     sprite.Playing = false;
     sprite.Stop();
 
+    sprite.Visible = false;
+    await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
+    sprite.Visible = true;
+    await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
+    sprite.Visible = false;
+    await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
+    sprite.Visible = true;
+    await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
+    
     // wait and then reload scene
     await ToSignal(GetTree().CreateTimer(0.25f), "timeout");
-
     SceneChanger.Instance.GoToScene("res://src/GUI/LoseScreen.tscn");
   }
 }

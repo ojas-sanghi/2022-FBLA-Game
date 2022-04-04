@@ -20,7 +20,7 @@ public class LeaderboardLabel : HBoxContainer
 
   public override void _Ready()
   {
-    font50 = GD.Load<DynamicFont>("res://assets/fonts/Font50.tres");
+    font50 = GD.Load<DynamicFont>("res://assets/fonts/ArcadeFont35.tres");
     fontTheme = new Theme();
     fontTheme.DefaultFont = font50;
 

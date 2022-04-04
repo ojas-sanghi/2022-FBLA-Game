@@ -1,10 +1,10 @@
-using Godot;
 using System;
+using Godot;
 
 public class QuitButton : Button
 {
-    void OnQuitButtonPressed()
-    {
-        GetTree().Quit();
-    }
+  void OnQuitButtonPressed()
+  {
+    GetTree().Quit();
+  }
 }

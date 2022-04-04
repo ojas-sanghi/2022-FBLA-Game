@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/actors/Enemy.cs" type="Script" id=1]
-[ext_resource path="res://enemylong.png" type="Texture" id=2]
-[ext_resource path="res://enemy1.png" type="Texture" id=3]
+[ext_resource path="res://assets/actors/enemylong.png" type="Texture" id=2]
+[ext_resource path="res://assets/actors/enemy1.png" type="Texture" id=3]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {

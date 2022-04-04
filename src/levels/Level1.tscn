@@ -1,16 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/jackie spaceship tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://src/props/GoldCoin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/props/AlienCoin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/GUI/ScoreCounter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/GUI/ScoreMultiplier.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/space background.png" type="Texture" id=7]
 [ext_resource path="res://src/levels/LevelEndArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/GUI/ScoreAndMultiplierHUD.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/fonts/Font25.tres" type="DynamicFont" id=11]
-[ext_resource path="res://assets/space level.mp3" type="AudioStream" id=12]
+[ext_resource path="res://assets/fonts/ArcadeFont15.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/music/spaceship level.mp3" type="AudioStream" id=12]
 
 [node name="Level1" type="Node2D"]
 
@@ -34,7 +33,7 @@ tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 25, 2, 0, 26, 2, 0, 27, 2, 0, 28, 2, 0, 29, 2, 0, 30, 2, 0, 31, 2, 0, 32, 2, 0, 33, 2, 0, 34, 2, 0, 35, 2, 0, 36, 2, 0, 37, 2, 0, 38, 2, 0, 39, 2, 0, 40, 2, 0, 65536, 2, 0, 65576, 2, 0, 131072, 2, 0, 131112, 2, 0, 196608, 2, 0, 196648, 2, 0, 262144, 2, 0, 262145, 8, 0, 262146, 8, 0, 262170, 8, 0, 262171, 8, 0, 262172, 8, 0, 262173, 8, 0, 262181, 8, 0, 262184, 2, 0, 327680, 2, 0, 327720, 2, 0, 393216, 2, 0, 393220, 8, 0, 393223, 8, 0, 393224, 8, 0, 393225, 8, 0, 393256, 2, 0, 458752, 2, 0, 458775, 8, 0, 458776, 8, 0, 458777, 8, 0, 458778, 8, 0, 458792, 2, 0, 524288, 2, 0, 524298, 8, 0, 524299, 8, 0, 524300, 8, 0, 524301, 8, 0, 524302, 8, 0, 524303, 8, 0, 524328, 2, 0, 589824, 2, 0, 589826, 8, 0, 589827, 8, 0, 589828, 8, 0, 589855, 8, 0, 589856, 8, 0, 589857, 8, 0, 589858, 8, 0, 589864, 2, 0, 655360, 2, 0, 655377, 8, 0, 655378, 8, 0, 655379, 8, 0, 655380, 8, 0, 655381, 8, 0, 655400, 2, 0, 720896, 2, 0, 720936, 2, 0, 786432, 2, 0, 786442, 26, 0, 786443, 2, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 27, 0, 786472, 2, 0, 851968, 2, 0, 852004, 8, 0, 852005, 8, 0, 852006, 8, 0, 852008, 2, 0, 917504, 2, 0, 917544, 2, 0, 983040, 2, 0, 983080, 2, 0, 1048576, 2, 0, 1048577, 2, 0, 1048578, 2, 0, 1048579, 2, 0, 1048580, 2, 0, 1048581, 2, 0, 1048582, 2, 0, 1048583, 2, 0, 1048584, 2, 0, 1048585, 2, 0, 1048586, 2, 0, 1048587, 2, 0, 1048588, 2, 0, 1048589, 2, 0, 1048590, 2, 0, 1048591, 2, 0, 1048592, 2, 0, 1048593, 2, 0, 1048594, 2, 0, 1048595, 2, 0, 1048596, 2, 0, 1048597, 2, 0, 1048598, 2, 0, 1048599, 2, 0, 1048600, 2, 0, 1048601, 2, 0, 1048602, 2, 0, 1048603, 2, 0, 1048604, 2, 0, 1048605, 2, 0, 1048606, 2, 0, 1048607, 2, 0, 1048608, 2, 0, 1048609, 2, 0, 1048610, 2, 0, 1048611, 2, 0, 1048612, 2, 0, 1048613, 2, 0, 1048614, 2, 0, 1048615, 2, 0, 1048616, 2, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 25, 2, 0, 26, 2, 0, 27, 2, 0, 28, 2, 0, 29, 2, 0, 30, 2, 0, 31, 2, 0, 32, 2, 0, 33, 2, 0, 34, 2, 0, 35, 2, 0, 36, 2, 0, 37, 2, 0, 38, 2, 0, 39, 2, 0, 40, 2, 0, 65536, 2, 0, 65576, 2, 0, 131072, 2, 0, 131112, 2, 0, 196608, 2, 0, 196609, 8, 0, 196610, 8, 0, 196648, 2, 0, 262144, 2, 0, 262170, 8, 0, 262171, 8, 0, 262172, 8, 0, 262173, 8, 0, 262181, 8, 0, 262184, 2, 0, 327680, 2, 0, 327720, 2, 0, 393216, 2, 0, 393220, 8, 0, 393223, 8, 0, 393224, 8, 0, 393225, 8, 0, 393256, 2, 0, 458752, 2, 0, 458775, 8, 0, 458776, 8, 0, 458777, 8, 0, 458778, 8, 0, 458792, 2, 0, 524288, 2, 0, 524298, 8, 0, 524299, 8, 0, 524300, 8, 0, 524301, 8, 0, 524302, 8, 0, 524303, 8, 0, 524328, 2, 0, 589824, 2, 0, 589826, 8, 0, 589827, 8, 0, 589828, 8, 0, 589855, 8, 0, 589856, 8, 0, 589857, 8, 0, 589858, 8, 0, 589864, 2, 0, 655360, 2, 0, 655377, 8, 0, 655378, 8, 0, 655379, 8, 0, 655380, 8, 0, 655381, 8, 0, 655400, 2, 0, 720896, 2, 0, 720936, 2, 0, 786432, 2, 0, 786442, 26, 0, 786443, 2, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 27, 0, 786472, 2, 0, 851968, 2, 0, 852004, 8, 0, 852005, 8, 0, 852006, 8, 0, 852008, 2, 0, 917504, 2, 0, 917544, 2, 0, 983040, 2, 0, 983080, 2, 0, 1048576, 2, 0, 1048577, 2, 0, 1048578, 2, 0, 1048579, 2, 0, 1048580, 2, 0, 1048581, 2, 0, 1048582, 2, 0, 1048583, 2, 0, 1048584, 2, 0, 1048585, 2, 0, 1048586, 2, 0, 1048587, 2, 0, 1048588, 2, 0, 1048589, 2, 0, 1048590, 2, 0, 1048591, 2, 0, 1048592, 2, 0, 1048593, 2, 0, 1048594, 2, 0, 1048595, 2, 0, 1048596, 2, 0, 1048597, 2, 0, 1048598, 2, 0, 1048599, 2, 0, 1048600, 2, 0, 1048601, 2, 0, 1048602, 2, 0, 1048603, 2, 0, 1048604, 2, 0, 1048605, 2, 0, 1048606, 2, 0, 1048607, 2, 0, 1048608, 2, 0, 1048609, 2, 0, 1048610, 2, 0, 1048611, 2, 0, 1048612, 2, 0, 1048613, 2, 0, 1048614, 2, 0, 1048615, 2, 0, 1048616, 2, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 219, 655 )
@@ -58,24 +57,18 @@ position = Vector2( 715, 376 )
 position = Vector2( 850, 422 )
 
 [node name="AlienCoin" parent="Coins" instance=ExtResource( 4 )]
-position = Vector2( 163, 339 )
+position = Vector2( 203, 305 )
 
 [node name="AlienCoin2" parent="Coins" instance=ExtResource( 4 )]
-position = Vector2( 81, 421 )
+position = Vector2( 166, 443 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScoreCounter" parent="CanvasLayer" instance=ExtResource( 5 )]
-margin_left = 961.0
-margin_top = 6.0
-margin_right = 1004.0
-margin_bottom = 20.0
-
-[node name="ScoreMultiplier" parent="CanvasLayer" instance=ExtResource( 6 )]
-margin_left = 880.0
-margin_top = 22.0
-margin_right = 950.0
-margin_bottom = 36.0
+[node name="ScoreAndMultiplierHUD" parent="CanvasLayer" instance=ExtResource( 9 )]
+margin_left = 960.0
+margin_top = 25.0
+margin_right = 1141.0
+margin_bottom = 75.0
 
 [node name="LevelEndArea" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2466, 895 )
@@ -84,36 +77,37 @@ position = Vector2( 2466, 895 )
 position = Vector2( 577, 950 )
 
 [node name="Instruction1" type="Label" parent="."]
-margin_left = 58.0
-margin_top = 796.0
-margin_right = 419.0
-margin_bottom = 857.0
+margin_left = 104.0
+margin_top = 801.0
+margin_right = 465.0
+margin_bottom = 862.0
 custom_fonts/font = ExtResource( 11 )
-text = "Use WASD or the arrow keys to move!"
+text = "Use WASD or the arrow keys to move"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Instruction2" type="Label" parent="."]
-margin_left = 510.0
-margin_top = 833.0
-margin_right = 871.0
-margin_bottom = 894.0
+margin_left = 471.0
+margin_top = 850.0
+margin_right = 724.0
+margin_bottom = 869.0
+custom_colors/font_color = Color( 0.65098, 0.117647, 0.117647, 1 )
 custom_fonts/font = ExtResource( 11 )
-text = "Avoid the enemy!"
+text = "Avoid the enemy"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Instruction3" type="Label" parent="."]
-margin_left = 727.0
-margin_top = 563.0
-margin_right = 1088.0
-margin_bottom = 624.0
+margin_left = 730.0
+margin_top = 587.0
+margin_right = 938.0
+margin_bottom = 609.0
 custom_fonts/font = ExtResource( 11 )
-text = "Come up here!"
+text = "Come up here"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -125,31 +119,31 @@ margin_top = 252.0
 margin_right = 1067.0
 margin_bottom = 313.0
 custom_fonts/font = ExtResource( 11 )
-text = "Collecting coins gives you gold and score points!"
+text = "Collecting coins gives you gold and score points"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Instruction5" type="Label" parent="."]
-margin_left = 46.0
-margin_top = 285.0
-margin_right = 407.0
-margin_bottom = 346.0
+margin_left = 81.0
+margin_top = 246.0
+margin_right = 442.0
+margin_bottom = 307.0
 custom_fonts/font = ExtResource( 11 )
-text = "Alien coins are worth  extra!"
+text = "Alien coins are worth extra"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Instruction6" type="Label" parent="."]
-margin_left = 2231.0
-margin_top = 851.0
-margin_right = 2592.0
-margin_bottom = 912.0
+margin_left = 2134.0
+margin_top = 879.0
+margin_right = 2495.0
+margin_bottom = 940.0
 custom_fonts/font = ExtResource( 11 )
-text = "Here's the exit wormhole!"
+text = "Here's the exit wormhole"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
