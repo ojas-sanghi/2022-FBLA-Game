@@ -6,6 +6,8 @@ public class PlayerInfo : Node
   public static int gold = 50;
   public static int score = 0;
 
+  public static int goldThisLevel = 0;
+
   public static int scoreMultiplier = 1;
 
   public static PlayerInfo Instance;
@@ -31,7 +33,7 @@ public class PlayerInfo : Node
 
   void OnCoinCollected(BaseCoin coin)
   {
-    gold += coin.goldValue;
+    goldThisLevel += coin.goldValue;
     score += coin.scoreValue * scoreMultiplier;
     Events.publishScoreChanged();
   }
@@ -39,5 +41,10 @@ public class PlayerInfo : Node
   void OnScoreMultiplierBought(int multiplier)
   {
     scoreMultiplier = multiplier;
+  }
+
+  public void resetGoldEarned()
+  {
+    goldThisLevel = 0;
   }
 }

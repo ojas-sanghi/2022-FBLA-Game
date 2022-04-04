@@ -37,4 +37,12 @@ public class Enemy : Area2D
       Position = new Vector2(Position.x + speed * delta, Position.y);
   }
 
+  void OnEnemyBodyEntered(Node body)
+  {
+    if (!(body is Player))
+      return;
+
+    Events.publishPlayerDied();
+  }
+
 }

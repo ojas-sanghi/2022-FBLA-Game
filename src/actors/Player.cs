@@ -1,79 +1,143 @@
-using Godot;
 using System;
+using Godot;
 
 public class Player : Actor
 {
-	int timesJumped = 0;
-	public override void _Ready()
-	{
-		base._Ready();
-	}
+  [Export] AnimatedSprite sprite;
 
-	public override void _PhysicsProcess(float delta)
-	{
-		bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0;
+  int timesJumped = 0;
+  // used to keep track of current animation to be played
+  string _anim = "";
 
-		Vector2 direction = GetDirection();
-		velocity = CalculateMoveVelocity(velocity, direction, speed, isJumpInterrupted);
+  bool playerAlive = true;
 
-		MoveAndSlide(velocity, FLOOR_NORMAL);
-	}
+  public override void _Ready()
+  {
+    base._Ready();
+    sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+    Events.playerDied += OnPlayerDied;
+  }
 
-	// func get_direction() -> Vector2:
-	// return Vector2(
-	// 	Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-	// 	-1.0 if can_jump() else 1.0
-	// )
+  public override void _PhysicsProcess(float delta)
+  {
+    if (!playerAlive)
+      return;
 
-	Vector2 GetDirection()
-	{
-		return new Vector2(
-			Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
-			CanJump() ? -1.0f : 1.0f
-		);
-	}
+    bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0;
 
-	Vector2 CalculateMoveVelocity(Vector2 linearVelocity, Vector2 direction, Vector2 speed, bool isJumpInterrupted)
-	{
-		Vector2 newVel = linearVelocity;
+    Vector2 direction = GetDirection();
+    velocity = CalculateMoveVelocity(velocity, direction, speed, isJumpInterrupted);
 
-		newVel.x = speed.x * direction.x;
+    MoveAndSlide(velocity, FLOOR_NORMAL);
 
-		newVel.y += gravity * GetPhysicsProcessDeltaTime();
+    AnimatePlayer(velocity);
+  }
 
-		if (newVel.y > gravityLimit)
-		{
-			newVel.y = gravityLimit;
-		}
+  Vector2 GetDirection()
+  {
+    return new Vector2(
+      Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
+      CanJump() ? -1.0f : 1.0f
+    );
+  }
 
-		if (direction.y == -1.0f)
-		{
-			newVel.y = speed.y * direction.y;
-		}
+  Vector2 CalculateMoveVelocity(Vector2 linearVelocity, Vector2 direction, Vector2 speed, bool isJumpInterrupted)
+  {
+    Vector2 newVel = linearVelocity;
 
-		if (isJumpInterrupted)
-		{
-			newVel.y = 0.0f;
-		}
+    newVel.x = speed.x * direction.x;
 
-		return newVel;
-	}
+    newVel.y += gravity * GetPhysicsProcessDeltaTime();
 
-	bool CanJump()
-	{
-		if (Input.IsActionJustPressed("jump"))
-		{
-			if (IsOnFloor())
-			{
-				timesJumped = 1;
-				return true;
-			}
-			if (timesJumped == 1)
-			{
-				timesJumped++;
-				return true;
-			}
-		}
-		return false;
-	}
+    if (newVel.y > gravityLimit)
+    {
+      newVel.y = gravityLimit;
+    }
+
+    if (direction.y == -1.0f)
+    {
+      newVel.y = speed.y * direction.y;
+    }
+
+    if (isJumpInterrupted)
+    {
+      newVel.y = 0.0f;
+    }
+
+    return newVel;
+  }
+
+  bool CanJump()
+  {
+    if (Input.IsActionJustPressed("jump"))
+    {
+      if (IsOnFloor())
+      {
+        timesJumped = 1;
+        return true;
+      }
+      if (timesJumped == 1)
+      {
+        timesJumped++;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  void AnimatePlayer(Vector2 linearVel)
+  {
+    // default new anim
+    string newAnim = "idle";
+
+    // Flip the sprite horizontally if they're moving left
+    if (linearVel.x < 0)
+    {
+      sprite.FlipH = true;
+      newAnim = "walk";
+    }
+
+    // Undo any existing flip if they're moving to the right
+    if (linearVel.x > 0)
+    {
+      sprite.FlipH = false;
+      newAnim = "walk";
+    }
+    else
+    {
+      // If they're going up, set the jumping animation
+      // Otherwise, set the fall animation
+      if (linearVel.y < 0)
+        newAnim = "jump";
+      else
+        newAnim = "fall";
+    }
+
+    // Play the new animation if it's different
+    if (newAnim != _anim)
+    {
+      _anim = newAnim;
+      sprite.Play(newAnim);
+    }
+  }
+
+  async void OnPlayerDied()
+  {
+    // stop movement
+    playerAlive = false;
+
+    // reset gold earned
+    PlayerInfo.Instance.resetGoldEarned();
+
+    // play death anim
+    sprite.Play("death");
+    await ToSignal(sprite, "animation_finished");
+    sprite.Playing = false;
+    sprite.Stop();
+
+    // wait and then reload scene
+    await ToSignal(GetTree().CreateTimer(0.25f), "timeout");
+
+    SceneChanger.Instance.GoToScene("res://src/GUI/LoseScreen.tscn");
+  }
 }

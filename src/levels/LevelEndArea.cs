@@ -8,6 +8,8 @@ public class LevelEndArea : Area2D
   {
     if (!(body is Player)) return;
 
+    PlayerInfo.gold += PlayerInfo.goldThisLevel;
+
     List<Enums.Levels> levelsList = Enums.Levels.GetValues(typeof(Enums.Levels)).Cast<Enums.Levels>().ToList();
     int currentLevelIndex = levelsList.IndexOf(Globals.Instance.currentLevel);
     int nextLevelIndex = currentLevelIndex + 1;

@@ -8,6 +8,7 @@ public class Events : Node
     public static event Action<int> scoreMultiplierBought;
     public static event Action scoreChanged;
     public static event Action levelEnded;
+    public static event Action playerDied;
 
     //////////////////////////
 
@@ -16,6 +17,7 @@ public class Events : Node
     public static void publishScoreMultiplierBought(int multiplier) => scoreMultiplierBought?.Invoke(multiplier);
     public static void publishScoreChanged() => scoreChanged?.Invoke();
     public static void publishLevelEnded() => levelEnded?.Invoke();
+    public static void publishPlayerDied() => playerDied?.Invoke();
 
 
     public override void _Ready()

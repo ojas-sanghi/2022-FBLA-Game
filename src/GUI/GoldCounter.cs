@@ -16,6 +16,6 @@ public class GoldCounter : Label
 
     void UpdateText(int a)
     {
-        Text = $"Gold: {PlayerInfo.gold}";
+        Text = $"Gold: {PlayerInfo.goldThisLevel}";
     }
 }

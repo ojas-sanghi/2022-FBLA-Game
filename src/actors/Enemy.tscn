@@ -23,8 +23,11 @@ position = Vector2( 0, 1.00001 )
 scale = Vector2( 6.64286, 6.45 )
 frames = SubResource( 2 )
 animation = "boing"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
 shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="OnEnemyBodyEntered"]
