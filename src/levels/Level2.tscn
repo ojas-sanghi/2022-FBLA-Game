@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/world2bg1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/GUI/ScoreMultiplier.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/world 2 tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://src/levels/LevelEndArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/mars desert level.mp3" type="AudioStream" id=9]
 
 [node name="Level2" type="Node2D"]
 
@@ -72,3 +73,7 @@ margin_bottom = 36.0
 [node name="LevelEndArea" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3272, 760 )
 scale = Vector2( 2, 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true

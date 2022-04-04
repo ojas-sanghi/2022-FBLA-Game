@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/Font100.tres" type="DynamicFont" id=1]
 [ext_resource path="res://PlayButton.cs" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Font50.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/GUI/QuitButton.cs" type="Script" id=4]
+[ext_resource path="res://assets/menu music.mp3" type="AudioStream" id=5]
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -41,6 +42,10 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="OnPlayButtonPressed"]
 [connection signal="pressed" from="QuitButton" to="QuitButton" method="OnQuitButtonPressed"]
