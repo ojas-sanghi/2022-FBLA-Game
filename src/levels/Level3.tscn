@@ -70,5 +70,5 @@ margin_right = 950.0
 margin_bottom = 36.0
 
 [node name="LevelEndArea" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3310, 906 )
+position = Vector2( 3268, 761 )
 scale = Vector2( 2, 2 )
