@@ -1,5 +1,5 @@
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 using Newtonsoft.Json;
 
@@ -31,8 +31,12 @@ public class Globals : Node
         };
 
     File scoresFile = new File();
-    scoresFile.Open("user://highscores.save", File.ModeFlags.Read);
-    highScores = JsonConvert.DeserializeObject<Dictionary<string, int>>(scoresFile.GetAsText());
-    scoresFile.Close();
+    if (scoresFile.FileExists("user://highscores.save"))
+    {
+      scoresFile.Open("user://highscores.save", File.ModeFlags.Read);
+      string json = scoresFile.GetAsText();
+      highScores = JsonConvert.DeserializeObject<Dictionary<string, int>>(json);
+      scoresFile.Close();
+    }
   }
 }

@@ -29,12 +29,15 @@ public class Leaderboard : ScrollContainer
     List<LeaderboardLabel> labelChildren = labels.GetChildren().Cast<LeaderboardLabel>().ToList<LeaderboardLabel>();
     labelChildren.ForEach(child => child.QueueFree());
 
-    List <KeyValuePair<string, int>> sortedScores = Globals.Instance.highScores.OrderByDescending(x => x.Value).ToList();
-
-    foreach (KeyValuePair<string, int> highScore in sortedScores)
+    if (Globals.Instance.highScores.Count > 0)
     {
-      LeaderboardLabel label = new LeaderboardLabel(highScore.Key, highScore.Value);
-      labels.AddChild(label);
+      List<KeyValuePair<string, int>> sortedScores = Globals.Instance.highScores.OrderByDescending(x => x.Value).ToList();
+      foreach (KeyValuePair<string, int> highScore in sortedScores)
+      {
+        LeaderboardLabel label = new LeaderboardLabel(highScore.Key, highScore.Value);
+        labels.AddChild(label);
+      }
     }
+
   }
 }

@@ -1,15 +1,10 @@
-using Godot;
 using System;
+using Godot;
 
 public class PowerupShop : Control
 {
-    public override void _Ready()
-    {
-        
-    }
-
-    void OnScoreMultiplierBuyPressed()
-    {
-        Events.publishScoreMultiplierBought(2);
-    }
+  void OnScoreMultiplierBuyPressed()
+  {
+    Events.publishScoreMultiplierBought(2);
+  }
 }
