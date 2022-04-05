@@ -91,22 +91,29 @@ public class Player : Actor
       sprite.FlipH = true;
       newAnim = "walk";
     }
-
-    // Undo any existing flip if they're moving to the right
-    if (linearVel.x > 0)
+    else if (linearVel.x > 0)
     {
+      // Undo any existing flip if they're moving to the right
       sprite.FlipH = false;
       newAnim = "walk";
     }
     else
     {
-      // If they're going up, set the jumping animation
-      // Otherwise, set the fall animation
-      if (linearVel.y < 0)
-        newAnim = "jump";
-      else
-        newAnim = "fall";
+      newAnim = "idle";
     }
+    
+    // If they're going up, set the jumping animation
+    // Otherwise, set the fall animation
+    if (linearVel.y < 0)
+    {
+      newAnim = "jump";
+    }
+    else if (linearVel.y > 0 && !IsOnFloor())
+    {
+      newAnim = "fall";
+    }
+    
+    GD.Print(linearVel);
 
     // Play the new animation if it's different
     if (newAnim != _anim)
