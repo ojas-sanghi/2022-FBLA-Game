@@ -144,6 +144,6 @@ public class Player : Actor
     
     // wait and then reload scene
     await ToSignal(GetTree().CreateTimer(0.25f), "timeout");
-    SceneChanger.Instance.GoToScene("res://src/GUI/LoseScreen.tscn");
+    GetTree().ReloadCurrentScene();
   }
 }

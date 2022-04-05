@@ -3,7 +3,7 @@ using Godot;
 
 public class MusicPlayer : Node2D
 {
-  AudioStreamPlayer audioPlayer;
+  public AudioStreamPlayer audioPlayer;
 
   public static MusicPlayer Instance;
 

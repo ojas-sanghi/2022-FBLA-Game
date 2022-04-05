@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/ArcadeFont75.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/ArcadeFont35.tres" type="DynamicFont" id=2]
@@ -6,24 +6,25 @@
 [ext_resource path="res://src/GUI/EndScreen.cs" type="Script" id=4]
 [ext_resource path="res://src/GUI/Leaderboard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/GUI/ButtonTheme.tres" type="Theme" id=6]
+[ext_resource path="res://InstanceableAudioPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/music/menu music.mp3" type="AudioStream" id=8]
+[ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=9]
 
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -8.0
-margin_top = -45.0
-margin_right = -8.0
-margin_bottom = -45.0
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WinText" type="Label" parent="."]
-margin_left = 707.0
-margin_top = 77.0
-margin_right = 1425.0
-margin_bottom = 190.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -359.0
+margin_top = 53.0
+margin_right = 359.0
+margin_bottom = 128.0
 custom_fonts/font = ExtResource( 1 )
 text = "YOU WIN!!"
 __meta__ = {
@@ -31,26 +32,33 @@ __meta__ = {
 }
 
 [node name="ScoreCounter" parent="." instance=ExtResource( 3 )]
-margin_left = 898.0
-margin_top = 205.0
-margin_right = 1076.0
-margin_bottom = 262.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -374.0
+margin_right = 180.0
+margin_bottom = -317.0
 custom_fonts/font = ExtResource( 2 )
+text = "Score: 200"
 
 [node name="SaveScore" type="Control" parent="."]
-margin_left = 8.0
-margin_top = 213.0
-margin_right = 48.0
-margin_bottom = 253.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NameEnterLabel" type="Label" parent="SaveScore"]
-margin_left = 315.0
-margin_top = 273.0
-margin_right = 1760.0
-margin_bottom = 330.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -722.5
+margin_top = -164.0
+margin_right = 722.5
+margin_bottom = -107.0
 custom_fonts/font = ExtResource( 2 )
 text = "Enter your name to save your highscore"
 __meta__ = {
@@ -58,30 +66,43 @@ __meta__ = {
 }
 
 [node name="NameEnter" type="LineEdit" parent="SaveScore"]
-margin_left = 528.0
-margin_top = 332.0
-margin_right = 1480.0
-margin_bottom = 459.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -476.0
+margin_top = -105.0
+margin_right = 476.0
+margin_bottom = 22.0
 custom_fonts/font = ExtResource( 2 )
+align = 1
 expand_to_text_length = true
-placeholder_text = "Phuphu"
+placeholder_text = "player 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SubmitButton" type="Button" parent="SaveScore"]
-margin_left = 896.0
-margin_top = 492.0
-margin_right = 1166.0
-margin_bottom = 566.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = 49.0
+margin_right = 135.0
+margin_bottom = 123.0
 theme = ExtResource( 6 )
 text = "Submit"
 
 [node name="ResultLabel" type="Label" parent="SaveScore"]
-margin_left = 362.0
-margin_top = 586.0
-margin_right = 1662.0
-margin_bottom = 643.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -650.0
+margin_top = 162.0
+margin_right = 650.0
+margin_bottom = 219.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Error: duplicate names not allowed"
@@ -98,15 +119,26 @@ margin_right = 43.8
 margin_bottom = 81.6
 
 [node name="ToggleLeaderboard" type="Button" parent="."]
-margin_left = 607.0
-margin_top = 1007.0
-margin_right = 1440.0
-margin_bottom = 1082.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -416.5
+margin_top = -133.0
+margin_right = 416.5
+margin_bottom = -58.0
 theme = ExtResource( 6 )
 text = "Toggle leaderboard"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="InstanceableAudioPlayer" parent="." instance=ExtResource( 7 )]
+song = ExtResource( 8 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 9 )]
 
 [connection signal="pressed" from="SaveScore/SubmitButton" to="." method="OnSubmitButtonPressed"]
 [connection signal="pressed" from="ToggleLeaderboard" to="." method="OnToggleLeaderboardPressed"]

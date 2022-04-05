@@ -5,5 +5,6 @@
 [sub_resource type="AudioStreamMP3" id=1]
 
 [node name="InstanceableAudioPlayer" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 1 )
 song = SubResource( 1 )

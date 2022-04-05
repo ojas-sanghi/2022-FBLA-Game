@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/GUI/PowerupShop.cs" type="Script" id=1]
 [ext_resource path="res://src/buttons/ScoreMultiplierBuy.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/GUI/NextLevelButton.cs" type="Script" id=6]
 [ext_resource path="res://src/GUI/ScoreMultiplier.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/GUI/ButtonTheme.tres" type="Theme" id=8]
+[ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=9]
 
 [node name="PowerupShop" type="Control"]
 anchor_right = 1.0
@@ -17,50 +18,67 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScoreMultiplierBuy" parent="." instance=ExtResource( 2 )]
-margin_left = 527.0
-margin_top = 452.0
-margin_right = 1430.0
-margin_bottom = 583.0
-theme = ExtResource( 8 )
-text = "Buy x2 Score Multiplier"
-
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -433.5
-margin_top = 64.0
-margin_right = 433.5
-margin_bottom = 177.0
+margin_left = -500.0
+margin_top = 39.0
+margin_right = 500.0
+margin_bottom = 114.0
 custom_fonts/font = ExtResource( 3 )
 text = "POWERUP SHOP"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GoldCounter" parent="." instance=ExtResource( 4 )]
-margin_left = 851.0
-margin_top = 230.0
-margin_right = 999.0
-margin_bottom = 287.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -212.0
+margin_top = -314.0
+margin_right = 213.0
+margin_bottom = -214.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoldCounter" parent="VBoxContainer" instance=ExtResource( 4 )]
+margin_right = 425.0
+margin_bottom = 35.0
 custom_fonts/font = ExtResource( 5 )
 
-[node name="ScoreMultiplier" parent="." instance=ExtResource( 7 )]
-margin_left = 720.0
-margin_top = 292.0
-margin_right = 998.0
-margin_bottom = 349.0
+[node name="ScoreMultiplier" parent="VBoxContainer" instance=ExtResource( 7 )]
+margin_top = 65.0
+margin_right = 425.0
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 5 )
+
+[node name="ScoreMultiplierBuy" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -451.5
+margin_top = -65.5
+margin_right = 451.5
+margin_bottom = 65.5
+theme = ExtResource( 8 )
+text = "Buy x2 Score Multiplier"
 
 [node name="CostLabel" type="Label" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -142.0
-margin_top = 603.0
-margin_right = 159.0
-margin_bottom = 665.0
+anchor_bottom = 0.5
+margin_left = -137.5
+margin_top = 90.0
+margin_right = 137.5
+margin_bottom = 125.0
 custom_fonts/font = ExtResource( 5 )
-text = "Cost: "
+text = "Cost: 50"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -76,5 +94,9 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 9 )]
 
 [connection signal="pressed" from="NextLevelButton" to="NextLevelButton" method="OnNextLevelButtonPressed"]

@@ -18,7 +18,7 @@ public class BaseCoin : Area2D
       Sprite sprite = GetNode<Sprite>("Sprite");
       Tween tween = GetNode<Tween>("Tween");
 
-      float transTime = 0.5f;
+      float transTime = 0.3f;
       tween.InterpolateProperty(sprite, "scale", sprite.Scale, new Vector2(sprite.Scale * 2), transTime, Tween.TransitionType.Cubic, Tween.EaseType.Out);
       tween.InterpolateProperty(sprite, "modulate", new Color(1, 1, 1, 1), new Color(0, 0, 0, 0), transTime, Tween.TransitionType.Linear, Tween.EaseType.Out);
       tween.Start();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/ArcadeFont75.tres" type="DynamicFont" id=1]
 [ext_resource path="res://PlayButton.cs" type="Script" id=2]
@@ -7,25 +7,57 @@
 [ext_resource path="res://assets/music/menu music.mp3" type="AudioStream" id=5]
 [ext_resource path="res://src/GUI/ButtonTheme.tres" type="Theme" id=6]
 [ext_resource path="res://InstanceableAudioPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/title_screen.png" type="Texture" id=8]
 
-[node name="TitleScreen" type="Node2D"]
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
-margin_left = 444.0
-margin_top = 181.0
-margin_right = 1648.0
-margin_bottom = 294.0
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -602.0
+margin_top = -364.0
+margin_right = 602.0
+margin_bottom = 165.0
+custom_constants/separation = 300
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 1204.0
+margin_bottom = 75.0
 custom_fonts/font = ExtResource( 1 )
 text = "A space odyssey"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="Button" parent="."]
-margin_left = 904.0
-margin_top = 518.0
-margin_right = 1131.0
-margin_bottom = 638.0
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 375.0
+margin_right = 1204.0
+margin_bottom = 575.0
+custom_constants/separation = 50
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_right = 1204.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 0, 75 )
 theme = ExtResource( 6 )
 custom_fonts/font = ExtResource( 3 )
 text = "Play"
@@ -34,11 +66,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" type="Button" parent="."]
-margin_left = 907.0
-margin_top = 693.0
-margin_right = 1130.0
-margin_bottom = 804.0
+[node name="QuitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 125.0
+margin_right = 1204.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 75 )
 theme = ExtResource( 6 )
 text = "Quit"
 script = ExtResource( 4 )
@@ -49,5 +81,5 @@ __meta__ = {
 [node name="InstanceableAudioPlayer" parent="." instance=ExtResource( 7 )]
 song = ExtResource( 5 )
 
-[connection signal="pressed" from="PlayButton" to="PlayButton" method="OnPlayButtonPressed"]
-[connection signal="pressed" from="QuitButton" to="QuitButton" method="OnQuitButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayButton" to="VBoxContainer/VBoxContainer/PlayButton" method="OnPlayButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/QuitButton" to="VBoxContainer/VBoxContainer/QuitButton" method="OnQuitButtonPressed"]
