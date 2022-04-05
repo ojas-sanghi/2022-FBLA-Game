@@ -55,11 +55,20 @@ smoothing_speed = 2.5
 [node name="GoldCoin" parent="Coins" instance=ExtResource( 3 )]
 position = Vector2( 715, 376 )
 
+[node name="GoldCoin3" parent="Coins" instance=ExtResource( 3 )]
+position = Vector2( 1277, 573 )
+
+[node name="GoldCoin4" parent="Coins" instance=ExtResource( 3 )]
+position = Vector2( 1818, 163 )
+
 [node name="GoldCoin2" parent="Coins" instance=ExtResource( 3 )]
 position = Vector2( 850, 422 )
 
 [node name="AlienCoin" parent="Coins" instance=ExtResource( 4 )]
 position = Vector2( 203, 305 )
+
+[node name="AlienCoin3" parent="Coins" instance=ExtResource( 4 )]
+position = Vector2( 2397, 211 )
 
 [node name="AlienCoin2" parent="Coins" instance=ExtResource( 4 )]
 position = Vector2( 166, 443 )
@@ -77,6 +86,9 @@ position = Vector2( 2466, 895 )
 
 [node name="Enemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 577, 950 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2081, 493 )
 
 [node name="Instruction1" type="Label" parent="."]
 margin_left = 104.0
@@ -104,16 +116,13 @@ __meta__ = {
 }
 
 [node name="Instruction3" type="Label" parent="."]
-margin_left = 730.0
-margin_top = 587.0
-margin_right = 938.0
-margin_bottom = 609.0
+margin_left = 379.0
+margin_top = 542.0
+margin_right = 587.0
+margin_bottom = 564.0
 custom_fonts/font = ExtResource( 11 )
 text = "Come up here"
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Instruction4" type="Label" parent="."]
 margin_left = 706.0
@@ -134,6 +143,18 @@ margin_right = 442.0
 margin_bottom = 307.0
 custom_fonts/font = ExtResource( 11 )
 text = "Alien coins are worth extra"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction8" type="Label" parent="."]
+margin_left = 1463.0
+margin_top = 309.0
+margin_right = 1824.0
+margin_bottom = 378.0
+custom_fonts/font = ExtResource( 11 )
+text = "Press escape at any time to pause and return to the title screen"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -169,3 +190,4 @@ song = ExtResource( 12 )
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
 [node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 6 )]
+visible = false

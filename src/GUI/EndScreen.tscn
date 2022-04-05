@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/ArcadeFont75.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/ArcadeFont35.tres" type="DynamicFont" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://InstanceableAudioPlayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/music/menu music.mp3" type="AudioStream" id=8]
 [ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/end_screen.png" type="Texture" id=10]
 
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
@@ -17,6 +18,12 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
 
 [node name="WinText" type="Label" parent="."]
 anchor_left = 0.5
@@ -139,6 +146,7 @@ song = ExtResource( 8 )
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
 [node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 9 )]
+visible = false
 
 [connection signal="pressed" from="SaveScore/SubmitButton" to="." method="OnSubmitButtonPressed"]
 [connection signal="pressed" from="ToggleLeaderboard" to="." method="OnToggleLeaderboardPressed"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle2.png-87ea5a5e5862ac5a03933ed0e7fcc615.stex"
+path="res://.import/end_screen.png-b540317e1299162d9319de36d01e0c59.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/actors/idle2.png"
-dest_files=[ "res://.import/idle2.png-87ea5a5e5862ac5a03933ed0e7fcc615.stex" ]
+source_file="res://assets/end_screen.png"
+dest_files=[ "res://.import/end_screen.png-b540317e1299162d9319de36d01e0c59.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

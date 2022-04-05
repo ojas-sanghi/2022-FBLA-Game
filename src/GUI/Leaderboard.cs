@@ -41,6 +41,5 @@ public class Leaderboard : ScrollContainer
         labels.AddChild(label);
       }
     }
-
   }
 }

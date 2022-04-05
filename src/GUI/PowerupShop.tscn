@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/GUI/PowerupShop.cs" type="Script" id=1]
 [ext_resource path="res://src/buttons/ScoreMultiplierBuy.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/GUI/ScoreMultiplier.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/GUI/ButtonTheme.tres" type="Theme" id=8]
 [ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/shop_screen.png" type="Texture" id=10]
 
 [node name="PowerupShop" type="Control"]
 anchor_right = 1.0
@@ -17,6 +18,12 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
 
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
@@ -98,5 +105,6 @@ __meta__ = {
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
 [node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 9 )]
+visible = false
 
 [connection signal="pressed" from="NextLevelButton" to="NextLevelButton" method="OnNextLevelButtonPressed"]
