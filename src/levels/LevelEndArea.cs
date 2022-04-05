@@ -8,9 +8,12 @@ public class LevelEndArea : Area2D
   {
     if (!(body is Player)) return;
 
+    // add gold earned this level to global count, and reset level-specific counter
     PlayerInfo.gold += PlayerInfo.goldThisLevel;
     PlayerInfo.goldThisLevel = 0;
 
+    // get a list of all the levels in the enum
+    // and then get the index of the current level and increment
     List<Enums.Levels> levelsList = Enums.Levels.GetValues(typeof(Enums.Levels)).Cast<Enums.Levels>().ToList();
     int currentLevelIndex = levelsList.IndexOf(Globals.Instance.currentLevel);
     int nextLevelIndex = currentLevelIndex + 1;

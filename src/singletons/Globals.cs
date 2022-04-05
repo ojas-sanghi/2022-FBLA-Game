@@ -30,6 +30,7 @@ public class Globals : Node
           { Enums.Levels.Level3, GD.Load<PackedScene>("res://src/levels/Level3.tscn") }
         };
 
+    // load high scores from file
     File scoresFile = new File();
     if (scoresFile.FileExists("user://highscores.save"))
     {

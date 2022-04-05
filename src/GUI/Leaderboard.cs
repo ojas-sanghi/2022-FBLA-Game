@@ -26,14 +26,17 @@ public class Leaderboard : ScrollContainer
 
   void constructList()
   {
+    // get a list of all the existing entries and then delete them all
     List<LeaderboardLabel> labelChildren = labels.GetChildren().Cast<LeaderboardLabel>().ToList<LeaderboardLabel>();
     labelChildren.ForEach(child => child.QueueFree());
 
     if (Globals.Instance.highScores.Count > 0)
     {
+      // sort the current scores in the dictionary
       List<KeyValuePair<string, int>> sortedScores = Globals.Instance.highScores.OrderByDescending(x => x.Value).ToList();
       foreach (KeyValuePair<string, int> highScore in sortedScores)
       {
+        // make a new object from ecah and add it to the container
         LeaderboardLabel label = new LeaderboardLabel(highScore.Key, highScore.Value);
         labels.AddChild(label);
       }

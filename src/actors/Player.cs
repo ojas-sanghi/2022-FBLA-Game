@@ -20,6 +20,7 @@ public class Player : Actor
   {
     bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0;
 
+    // get direction and velocity, move, and then animate player
     Vector2 direction = GetDirection();
     velocity = CalculateMoveVelocity(velocity, direction, speed, isJumpInterrupted);
 
@@ -44,6 +45,7 @@ public class Player : Actor
 
     newVel.y += gravity * GetPhysicsProcessDeltaTime();
 
+    // cap downward speed ot gravity limit
     if (newVel.y > gravityLimit)
     {
       newVel.y = gravityLimit;
@@ -133,6 +135,7 @@ public class Player : Actor
     sprite.Playing = false;
     sprite.Stop();
 
+    // blink the sprite in and out
     sprite.Visible = false;
     await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
     sprite.Visible = true;

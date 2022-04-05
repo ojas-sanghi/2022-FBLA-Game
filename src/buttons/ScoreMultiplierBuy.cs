@@ -14,13 +14,9 @@ public class ScoreMultiplierBuy : Button
     int cost = ShopInfo.Instance.shopItems["x2 Score Multiplier"];
 
     if (PlayerInfo.gold <= cost)
-    {
       Disabled = true;
-    }
     else
-    {
       Disabled = false;
-    }
   }
 
   void OnScoreMultiplierBuyPressed()

@@ -19,6 +19,8 @@ public class Enemy : Area2D
   }
 
   public override void _Process(float delta)
+  // Go all the way right until the extreme is hit; then go to the left
+  // Once left extreme is hit, go to the right. Then repeat.
   {
     if (Position.x >= rightEnd)
     {

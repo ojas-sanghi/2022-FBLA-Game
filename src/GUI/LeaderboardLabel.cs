@@ -27,7 +27,6 @@ public class LeaderboardLabel : HBoxContainer
     Label nameLabel = new Label();
     nameLabel.Autowrap = true;
     nameLabel.SizeFlagsHorizontal = (int)SizeFlags.ExpandFill;
-    // <font color>
     nameLabel.Theme = fontTheme;
     nameLabel.Text = name;
 
