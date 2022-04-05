@@ -36,9 +36,3 @@ public class ScoreMultiplierBuy : Button
     }
   }
 }
-
-
-// todo
-// singleton for the music so its smooth
-// continue to play the music in the powerup shop
-// collection vfx for coins

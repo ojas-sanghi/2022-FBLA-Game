@@ -21,6 +21,7 @@ Globals="*res://src/singletons/Globals.cs"
 PlayerInfo="*res://src/singletons/PlayerInfo.cs"
 ShopInfo="*res://src/singletons/ShopInfo.cs"
 SceneChanger="*res://src/singletons/SceneChanger.tscn"
+MusicPlayer="*res://MusicPlayer.tscn"
 
 [display]
 

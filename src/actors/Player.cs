@@ -113,8 +113,6 @@ public class Player : Actor
       newAnim = "fall";
     }
     
-    GD.Print(linearVel);
-
     // Play the new animation if it's different
     if (newAnim != _anim)
     {
