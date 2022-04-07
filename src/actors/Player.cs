@@ -16,6 +16,11 @@ public class Player : Actor
     Events.playerDied += OnPlayerDied;
   }
 
+  public override void _ExitTree()
+  {
+    Events.playerDied -= OnPlayerDied;
+  }
+
   public override void _PhysicsProcess(float delta)
   {
     bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0;
