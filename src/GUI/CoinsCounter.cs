@@ -1,19 +1,17 @@
 using System;
 using Godot;
 
-public class GoldCounter : Label
+public class CoinsCounter : Label
 {
   public override void _Ready()
   {
     Events.coinCollected += UpdateText;
-    Events.goldChanged += UpdateText;
     UpdateText();
   }
 
   public override void _ExitTree()
   {
     Events.coinCollected -= UpdateText;
-    Events.goldChanged -= UpdateText;
   }
 
   void UpdateText(BaseCoin coin)
@@ -23,6 +21,6 @@ public class GoldCounter : Label
 
   void UpdateText()
   {
-    Text = $"Gold: {PlayerInfo.gold + PlayerInfo.goldThisLevel}";
+    Text = $"Coins Collected: {LevelInfo.Instance.coinsCollected} / {LevelInfo.Instance.coinsRequired}";
   }
 }

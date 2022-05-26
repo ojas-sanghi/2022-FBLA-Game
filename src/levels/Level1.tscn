@@ -16,6 +16,7 @@
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 13 )
+coinsRequired = 5
 parTimeSeconds = 60
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]

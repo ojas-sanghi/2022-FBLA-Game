@@ -133,8 +133,8 @@ public class Player : Actor
     // stop movement
     SetPhysicsProcess(false);
 
-    // reset gold earned
-    PlayerInfo.Instance.resetGoldAndScore();
+    // reset coins collected
+    LevelInfo.Instance.resetCoinsCollected();
 
     // play death anim
     sprite.Playing = false;

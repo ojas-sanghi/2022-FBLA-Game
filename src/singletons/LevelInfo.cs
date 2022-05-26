@@ -17,6 +17,7 @@ public class LevelInfo : Node
   {
     Instance = this;
 
+    coinsCollected = 0;
     Events.coinCollected += OnCoinCollected;
   }
 
@@ -24,5 +25,10 @@ public class LevelInfo : Node
   {
     //? treat green coins as non-required?
     coinsCollected++;
+  }
+
+  public void resetCoinsCollected()
+  {
+    coinsCollected = 0;
   }
 }

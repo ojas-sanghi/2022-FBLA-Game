@@ -16,6 +16,6 @@ public class ScoreCounter : Label
 
     void UpdateText()
     {
-        Text = $"Score: {PlayerInfo.score + PlayerInfo.scoreThisLevel}";
+        Text = $"Score: {PlayerInfo.score}";
     }
 }

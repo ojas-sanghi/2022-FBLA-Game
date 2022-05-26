@@ -32,7 +32,6 @@ public class ScoreMultiplierBuy : Button
     {
       PlayerInfo.gold -= cost;
       checkIfEnoughMoney();
-      Events.publishGoldChanged();
       Events.publishScoreMultiplierBought(2);
     }
   }
