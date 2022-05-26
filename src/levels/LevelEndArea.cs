@@ -12,6 +12,9 @@ public class LevelEndArea : Area2D
     PlayerInfo.gold += PlayerInfo.goldThisLevel;
     PlayerInfo.goldThisLevel = 0;
 
+    PlayerInfo.score += PlayerInfo.scoreThisLevel;
+    PlayerInfo.scoreThisLevel = 0;
+
     // get a list of all the levels in the enum
     // and then get the index of the current level and increment
     List<Enums.Levels> levelsList = Enums.Levels.GetValues(typeof(Enums.Levels)).Cast<Enums.Levels>().ToList();
