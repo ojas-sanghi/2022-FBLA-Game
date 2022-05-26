@@ -22,6 +22,7 @@ PlayerInfo="*res://src/singletons/PlayerInfo.cs"
 ShopInfo="*res://src/singletons/ShopInfo.cs"
 SceneChanger="*res://src/singletons/SceneChanger.tscn"
 MusicPlayer="*res://MusicPlayer.tscn"
+LevelInfo="*res://src/singletons/LevelInfo.cs"
 
 [display]
 

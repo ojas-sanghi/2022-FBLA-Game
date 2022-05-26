@@ -9,6 +9,3 @@ margin_bottom = 14.0
 custom_fonts/font = ExtResource( 2 )
 text = "Gold: "
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}

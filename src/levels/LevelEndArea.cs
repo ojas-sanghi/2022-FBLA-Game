@@ -28,7 +28,7 @@ public class LevelEndArea : Area2D
     else
     {
       Globals.Instance.currentLevel = (Enums.Levels)nextLevelIndex;
-      SceneChanger.Instance.GoToScene("res://src/GUI/PowerupShop.tscn");
+      SceneChanger.Instance.GoToScene("res://src/GUI/LevelEndScreen.tscn");
     }
   }
 }

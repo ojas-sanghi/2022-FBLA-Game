@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/ArcadeFont75.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/ArcadeFont35.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/GUI/ScoreCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/GUI/ButtonTheme.tres" type="Theme" id=5]
+[ext_resource path="res://assets/shop_screen.png" type="Texture" id=6]
+[ext_resource path="res://src/GUI/NextLevelButton.cs" type="Script" id=7]
+
+[node name="LevelEndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -500.0
+margin_top = 39.0
+margin_right = 500.0
+margin_bottom = 114.0
+custom_fonts/font = ExtResource( 1 )
+text = "LEVEL END"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -212.0
+margin_top = -314.0
+margin_right = 213.0
+margin_bottom = -214.0
+custom_constants/separation = 30
+
+[node name="ScoreCounter" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 425.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 2 )
+text = "Score:"
+
+[node name="NextLevelButton" type="Button" parent="."]
+margin_left = 1445.0
+margin_top = 945.0
+margin_right = 1896.0
+margin_bottom = 1053.0
+theme = ExtResource( 5 )
+text = "Next Level"
+script = ExtResource( 7 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 4 )]
+visible = false
+
+[connection signal="pressed" from="NextLevelButton" to="NextLevelButton" method="OnNextLevelButtonPressed"]
