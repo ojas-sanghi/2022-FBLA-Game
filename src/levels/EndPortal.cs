@@ -2,9 +2,38 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-public class LevelEndArea : Area2D
+public class EndPortal : Area2D
 {
-  void OnLevelEndAreaBodyEntered(Node body)
+  CollisionShape2D collisionShape;
+
+  public override void _Ready()
+  {
+    base._Ready();
+
+    // Note: by default, portal is b&w and the hitbox is disabled
+    collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
+    Events.coinCollected += OnCoinCollected;
+  }
+
+  public override void _ExitTree()
+  {
+    base._ExitTree();
+    Events.coinCollected -= OnCoinCollected;
+  }
+
+  void OnCoinCollected(BaseCoin coin)
+  {
+    // TODO: play a different animation when it unlocks
+    // Re-enable hitbox, give it color again
+    if (LevelInfo.Instance.coinsCollected >= LevelInfo.Instance.coinsRequired)
+    {
+      collisionShape.SetDeferred("disabled", false);
+      GetNode<Sprite>("Sprite").Material = null;
+    }
+  }
+
+
+  void OnEndPortalBodyEntered(Node body)
   {
     if (!(body is Player)) return;
 

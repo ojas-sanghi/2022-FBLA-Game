@@ -7,7 +7,7 @@
 [ext_resource path="res://InstanceableAudioPlayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/space background.png" type="Texture" id=7]
-[ext_resource path="res://src/levels/LevelEndArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/levels/EndPortal.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/GUI/InfoHUD.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/fonts/ArcadeFont15.tres" type="DynamicFont" id=11]
@@ -83,7 +83,7 @@ margin_top = 25.0
 margin_right = 1141.0
 margin_bottom = 75.0
 
-[node name="LevelEndArea" parent="." instance=ExtResource( 8 )]
+[node name="EndPortal" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2466, 895 )
 
 [node name="Enemy" parent="." instance=ExtResource( 10 )]
