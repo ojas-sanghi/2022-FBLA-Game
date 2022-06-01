@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/levels/MPBase.cs" type="Script" id=2]
+[ext_resource path="res://src/GUI/InfoHUD.tscn" type="PackedScene" id=5]
+
+[node name="MPBase" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Viewports" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 5
+alignment = 1
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Viewports"]
+margin_right = 957.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="Viewports/ViewportContainer"]
+size = Vector2( 960, 540 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="Viewports"]
+margin_left = 962.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="Viewports/ViewportContainer2"]
+size = Vector2( 960, 540 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="InfoHUD" parent="." instance=ExtResource( 5 )]
+margin_left = 866.0
+margin_top = 21.0
+margin_right = 1117.0
+margin_bottom = 141.0

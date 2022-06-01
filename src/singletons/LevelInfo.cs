@@ -21,7 +21,7 @@ public class LevelInfo : Node
     Events.coinCollected += OnCoinCollected;
   }
 
-  void OnCoinCollected(BaseCoin coin)
+  void OnCoinCollected(BaseCoin coin, int id)
   {
     //? treat green coins as non-required?
     coinsCollected++;

@@ -1,9 +1,12 @@
-using System;
 using Godot;
+using System.Threading.Tasks;
 
 public class Player : Actor
 {
-  [Export] AnimatedSprite sprite;
+  // what id player is; input is read differently accordingly
+  [Export] public int id = 1;
+
+  AnimatedSprite sprite;
 
   int timesJumped = 0;
   // used to keep track of current animation to be played
@@ -13,17 +16,25 @@ public class Player : Actor
   {
     base._Ready();
     sprite = GetNode<AnimatedSprite>("AnimatedSprite");
-    Events.playerDied += OnPlayerDied;
+    // Events.playerDied += OnPlayerDied;
+
+    if (!Globals.Instance.isMultiplayer)
+    {
+      // set id to 0 if singleplayer; will respond to both wasd and arrow keys
+      id = 0;
+      // and also enable the child camera
+      GetNode<Camera2D>("Camera2D").Current = true;
+    }
   }
 
   public override void _ExitTree()
   {
-    Events.playerDied -= OnPlayerDied;
+    // Events.playerDied -= OnPlayerDied;
   }
 
   public override void _PhysicsProcess(float delta)
   {
-    bool isJumpInterrupted = Input.IsActionJustReleased("jump") && velocity.y < 0.0;
+    bool isJumpInterrupted = Input.IsActionJustReleased($"jump_{id}") && velocity.y < 0.0;
 
     // get direction and velocity, move, and then animate player
     Vector2 direction = GetDirection();
@@ -37,7 +48,7 @@ public class Player : Actor
   Vector2 GetDirection()
   {
     return new Vector2(
-      Input.GetActionStrength("move_right") - Input.GetActionStrength("move_left"),
+      Input.GetActionStrength($"right_{id}") - Input.GetActionStrength($"left_{id}"),
       CanJump() ? -1.0f : 1.0f
     );
   }
@@ -71,7 +82,7 @@ public class Player : Actor
 
   bool CanJump()
   {
-    if (Input.IsActionJustPressed("jump"))
+    if (Input.IsActionJustPressed($"jump_{id}"))
     {
       if (IsOnFloor())
       {
@@ -108,7 +119,7 @@ public class Player : Actor
     {
       newAnim = "idle";
     }
-    
+
     // If they're going up, set the jumping animation
     // Otherwise, set the fall animation
     if (linearVel.y < 0)
@@ -119,7 +130,7 @@ public class Player : Actor
     {
       newAnim = "fall";
     }
-    
+
     // Play the new animation if it's different
     if (newAnim != _anim)
     {
@@ -128,8 +139,10 @@ public class Player : Actor
     }
   }
 
-  async void OnPlayerDied()
+  public async Task OnPlayerDied(int id)
   {
+    if (id != this.id) return;
+
     // stop movement
     SetPhysicsProcess(false);
 
@@ -149,9 +162,13 @@ public class Player : Actor
     await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
     sprite.Visible = true;
     await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
-    
-    // wait and then reload scene
-    await ToSignal(GetTree().CreateTimer(0.25f), "timeout");
-    GetTree().ReloadCurrentScene();
+
+    if (!Globals.Instance.isMultiplayer)
+    {
+      // wait and then reload scene ONLY IF singleplayer
+      await ToSignal(GetTree().CreateTimer(0.25f), "timeout");
+      GetTree().ReloadCurrentScene();
+    }
+    // if MP, then MPBase.cs will reload the level
   }
 }

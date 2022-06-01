@@ -10,7 +10,8 @@ public class BaseCoin : Area2D
   {
     if (n is Player)
     {
-      Events.publishCoinCollected(this);
+      var player = (Player)n;
+      Events.publishCoinCollected(this, player.id);
 
       CollisionShape2D collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
       collisionShape.SetDeferred("disabled", true);

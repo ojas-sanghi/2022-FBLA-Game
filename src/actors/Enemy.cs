@@ -43,8 +43,9 @@ public class Enemy : Area2D
   {
     if (!(body is Player))
       return;
+    var player = (Player)body;
 
-    Events.publishPlayerDied();
+    Events.publishPlayerDied(player.id);
   }
 
 }

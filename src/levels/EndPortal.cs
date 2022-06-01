@@ -21,7 +21,7 @@ public class EndPortal : Area2D
     Events.coinCollected -= OnCoinCollected;
   }
 
-  void OnCoinCollected(BaseCoin coin)
+  void OnCoinCollected(BaseCoin coin, int id)
   {
     // TODO: play a different animation when it unlocks
     // Re-enable hitbox, give it color again

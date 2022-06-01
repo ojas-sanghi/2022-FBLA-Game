@@ -14,7 +14,7 @@ public class CoinsCounter : Label
     Events.coinCollected -= UpdateText;
   }
 
-  void UpdateText(BaseCoin coin)
+  void UpdateText(BaseCoin coin, int id)
   {
     UpdateText();
   }

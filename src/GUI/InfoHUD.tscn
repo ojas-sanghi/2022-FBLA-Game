@@ -13,20 +13,20 @@ custom_constants/separation = 20
 [node name="ScoreCounter" parent="." instance=ExtResource( 1 )]
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 164.0
+margin_right = 251.0
 margin_bottom = 15.0
 
 [node name="CoinsCounter" parent="." instance=ExtResource( 3 )]
 margin_top = 35.0
-margin_right = 164.0
+margin_right = 251.0
 margin_bottom = 50.0
 
 [node name="TimeCounter" parent="." instance=ExtResource( 4 )]
 margin_top = 70.0
-margin_right = 164.0
+margin_right = 251.0
 margin_bottom = 85.0
 
 [node name="ParTimeLabel" parent="." instance=ExtResource( 2 )]
 margin_top = 105.0
-margin_right = 164.0
+margin_right = 251.0
 margin_bottom = 120.0

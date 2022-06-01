@@ -7,10 +7,14 @@ public class Globals : Node
 {
   public static Globals Instance;
 
+  public bool isMultiplayer = false;
+  public List<List<int>> cameraLimits = new List<List<int>>();
+
   public Enums.Levels currentLevel;
   public Dictionary<Enums.Levels, PackedScene> levels;
 
   public Dictionary<string, int> highScores = new Dictionary<string, int>();
+
 
   public Globals()
   {
@@ -20,6 +24,13 @@ public class Globals : Node
   public override void _Ready()
   {
     Instance = this;
+
+    cameraLimits = new()
+    {
+      new() { 2600, 1080 },
+      new() { 3500, 1080 },
+      new() { 1920, 1920 },
+    };
 
     currentLevel = Enums.Levels.Level1;
 
