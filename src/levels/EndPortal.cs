@@ -25,7 +25,7 @@ public class EndPortal : Area2D
   {
     // TODO: play a different animation when it unlocks
     // Re-enable hitbox, give it color again
-    if (LevelInfo.Instance.coinsCollected >= LevelInfo.Instance.coinsRequired)
+    if (LevelInfo.Instance.coinsCollected[id] >= LevelInfo.Instance.coinsRequired)
     {
       collisionShape.SetDeferred("disabled", false);
       GetNode<Sprite>("Sprite").Material = null;
@@ -36,8 +36,9 @@ public class EndPortal : Area2D
   void OnEndPortalBodyEntered(Node body)
   {
     if (!(body is Player)) return;
+    var player = (Player)body;
 
-    LevelInfo.Instance.resetCoinsCollected();
+    LevelInfo.Instance.resetCoinsCollected(player.id);
 
     // get a list of all the levels in the enum
     // and then get the index of the current level and increment

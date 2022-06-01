@@ -7,7 +7,8 @@ public class Globals : Node
 {
   public static Globals Instance;
 
-  public bool isMultiplayer = false;
+  // TODO: make this false by default, and set this from the menu's button
+  public bool isMultiplayer = true;
   public List<List<int>> cameraLimits = new List<List<int>>();
 
   public Enums.Levels currentLevel;

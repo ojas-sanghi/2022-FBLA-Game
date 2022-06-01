@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-public class PlayButton : Button
+public class SPButton : Button
 {
   void OnPlayButtonPressed()
   {

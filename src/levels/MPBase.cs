@@ -11,8 +11,6 @@ public class MPBase : Node
 
   public override void _Ready()
   {
-    Globals.Instance.isMultiplayer = true;
-
     viewport1 = GetNode<Viewport>("Viewports/ViewportContainer/Viewport");
     viewport2 = GetNode<Viewport>("Viewports/ViewportContainer2/Viewport");
 
@@ -55,6 +53,8 @@ public class MPBase : Node
   {
     // add level to viewport
     var newLevelNode = level.Instance();
+    IndividualLevelInfo lvl = (IndividualLevelInfo)newLevelNode;
+    lvl.id = 1;
     viewport1.AddChild(newLevelNode);
 
     // find player
@@ -69,6 +69,8 @@ public class MPBase : Node
   {
     // add level to viewport
     var newLevelNode = level.Instance();
+    IndividualLevelInfo lvl = (IndividualLevelInfo)newLevelNode;
+    lvl.id = 2;
     viewport2.AddChild(newLevelNode);
 
     // find player, set its id

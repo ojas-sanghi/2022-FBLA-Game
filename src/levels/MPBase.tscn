@@ -38,7 +38,5 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="InfoHUD" parent="." instance=ExtResource( 5 )]
-margin_left = 866.0
-margin_top = 21.0
-margin_right = 1117.0
-margin_bottom = 141.0
+margin_right = 251.0
+margin_bottom = 120.0

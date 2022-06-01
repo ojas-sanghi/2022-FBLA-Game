@@ -3,10 +3,12 @@ using Godot;
 
 public class ScoreCounter : Label
 {
+  [Export] int playerId = 1;
+
   public override void _Ready()
   {
     Events.scoreChanged += UpdateText;
-    UpdateText(0);
+    UpdateText(playerId);
   }
 
   public override void _ExitTree()
@@ -16,6 +18,7 @@ public class ScoreCounter : Label
 
   void UpdateText(int id)
   {
-    Text = $"Score: {PlayerInfo.score}";
+    if (id == playerId)
+      Text = $"Score: {PlayerInfo.score}";
   }
 }

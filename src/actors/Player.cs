@@ -147,7 +147,7 @@ public class Player : Actor
     SetPhysicsProcess(false);
 
     // reset coins collected
-    LevelInfo.Instance.resetCoinsCollected();
+    LevelInfo.Instance.resetCoinsCollected(this.id);
 
     // play death anim
     sprite.Playing = false;
