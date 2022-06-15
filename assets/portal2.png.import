@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemylong.png-20a284684fe8e5171758dcb2caff57a4.stex"
+path="res://.import/portal2.png-4a910cf7a8456ebf39cc343b4220c490.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/actors/enemylong.png"
-dest_files=[ "res://.import/enemylong.png-20a284684fe8e5171758dcb2caff57a4.stex" ]
+source_file="res://assets/portal2.png"
+dest_files=[ "res://.import/portal2.png-4a910cf7a8456ebf39cc343b4220c490.stex" ]
 
 [params]
 

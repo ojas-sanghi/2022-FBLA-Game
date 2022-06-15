@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemywide.png-67717d810194836062c9ac531261daff.stex"
+path="res://.import/enemy31.png-b14c59e5e718347e04f431cea5a4754f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/actors/enemywide.png"
-dest_files=[ "res://.import/enemywide.png-67717d810194836062c9ac531261daff.stex" ]
+source_file="res://assets/actors/enemy31.png"
+dest_files=[ "res://.import/enemy31.png-b14c59e5e718347e04f431cea5a4754f.stex" ]
 
 [params]
 
