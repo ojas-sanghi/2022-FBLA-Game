@@ -11,3 +11,4 @@ text = "Time Left:"
 script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true

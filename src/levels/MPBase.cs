@@ -44,6 +44,7 @@ public class MPBase : Node
     {
       await reloadPlayer2();
     }
+    GetNode<TimeLeftLabel>("InfoHUD/MPHUDs/MPHUDBoth/TimeLeftLabel").resetAndStartTimer();
   }
 
   async void OnPlayerDied(int playerId)

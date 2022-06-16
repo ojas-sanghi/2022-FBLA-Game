@@ -41,6 +41,7 @@ render_target_update_mode = 3
 [node name="InfoHUD" parent="." instance=ExtResource( 5 )]
 margin_right = 251.0
 margin_bottom = 120.0
+isMPHUD = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

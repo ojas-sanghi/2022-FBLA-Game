@@ -25,7 +25,7 @@ public class LevelInfo : Node
 
     levelTimeLimits = new() 
     {
-      { Enums.Levels.Level1, 120 },
+      { Enums.Levels.Level1, 6 },
       { Enums.Levels.Level2, 30 },
       { Enums.Levels.Level3, 15 }
     };

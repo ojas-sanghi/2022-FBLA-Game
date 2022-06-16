@@ -31,7 +31,7 @@ margin_right = 147.0
 margin_bottom = 15.0
 playerId = 0
 
-[node name="TimeLeftLabel" parent="SPHUDs/SPHUD" instance=ExtResource( 2 )]
+[node name="TimeLeftLabel" parent="SPHUDs/SPHUD" groups=["SPTimeLeft"] instance=ExtResource( 2 )]
 margin_top = 35.0
 margin_right = 147.0
 margin_bottom = 50.0
@@ -73,7 +73,7 @@ margin_left = 810.0
 margin_right = 957.0
 margin_bottom = 34.0
 
-[node name="TimeLeftLabel" parent="MPHUDs/MPHUDBoth" instance=ExtResource( 2 )]
+[node name="TimeLeftLabel" parent="MPHUDs/MPHUDBoth" groups=["MPTimeLeft"] instance=ExtResource( 2 )]
 margin_right = 147.0
 margin_bottom = 15.0
 
