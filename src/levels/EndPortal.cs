@@ -28,7 +28,8 @@ public class EndPortal : Area2D
     if (LevelInfo.Instance.coinsCollected[id] >= LevelInfo.Instance.coinsRequired)
     {
       collisionShape.SetDeferred("disabled", false);
-      GetNode<Sprite>("Sprite").Material = null;
+      GetNode<AnimatedSprite>("Sprite").Material = null;
+      GetNode<AnimatedSprite>("Sprite").Playing = true;
     }
   }
 
@@ -38,7 +39,12 @@ public class EndPortal : Area2D
     if (!(body is Player)) return;
     var player = (Player)body;
 
-    LevelInfo.Instance.resetCoinsCollected(player.id);
+    Globals.Instance.playersCompleted.Add(player.id);
+    Events.publishLevelPassed(player.id);
+
+    // if MP, quit; MPBase.cs will pick up from here
+    // otherwise, if SP, then go to next level
+    if (Globals.Instance.isMultiplayer) return;
 
     // get a list of all the levels in the enum
     // and then get the index of the current level and increment

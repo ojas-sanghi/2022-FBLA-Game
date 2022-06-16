@@ -16,6 +16,7 @@ public class Player : Actor
   {
     base._Ready();
     sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+    Events.timeOver += OnPlayerDied;
     // Events.playerDied += OnPlayerDied;
 
     if (!Globals.Instance.isMultiplayer)
@@ -23,12 +24,13 @@ public class Player : Actor
       // set id to 0 if singleplayer; will respond to both wasd and arrow keys
       id = 0;
       // and also enable the child camera
-      GetNode<Camera2D>("Camera2D").Current = true;
+      GetNode<Camera2D>("SPCamera").Current = true;
     }
   }
 
   public override void _ExitTree()
   {
+    Events.timeOver -= OnPlayerDied;
     // Events.playerDied -= OnPlayerDied;
   }
 
@@ -137,6 +139,14 @@ public class Player : Actor
       _anim = newAnim;
       sprite.Play(newAnim);
     }
+  }
+
+  // this is only called by the timeover signal
+  // that signal is agnostic to the player id
+  // it applies to everyone present; so as a result, only those still in the level (ie, SP, and those in MP who aren't waiting in the end screen) will be affected by this
+  async void OnPlayerDied()
+  {
+    await OnPlayerDied(this.id);
   }
 
   public async Task OnPlayerDied(int id)

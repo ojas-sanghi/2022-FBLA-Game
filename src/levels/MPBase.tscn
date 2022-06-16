@@ -20,7 +20,7 @@ size_flags_vertical = 3
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="Viewports/ViewportContainer"]
-size = Vector2( 960, 540 )
+size = Vector2( 957, 1080 )
 handle_input_locally = false
 render_target_update_mode = 3
 
@@ -33,7 +33,7 @@ size_flags_vertical = 3
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="Viewports/ViewportContainer2"]
-size = Vector2( 960, 540 )
+size = Vector2( 958, 1080 )
 handle_input_locally = false
 render_target_update_mode = 3
 

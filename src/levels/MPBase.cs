@@ -14,21 +14,36 @@ public class MPBase : Node
     viewport1 = GetNode<Viewport>("Viewports/ViewportContainer/Viewport");
     viewport2 = GetNode<Viewport>("Viewports/ViewportContainer2/Viewport");
 
-    // TODO: employ logic in EndPortal.cs and globals.currentlevel; maybe move endportal stuff to globals so that i can use it here? maybe not? we'll see how the level progression logic works
-    levelNum = 0;
-    level = GD.Load<PackedScene>("res://src/levels/Level1.tscn");
-    level.ResourceLocalToScene = true;
+    goToGlobalsCurrentLevel();
 
-    loadPlayer1();
-    loadPlayer2();
-
+    Events.timeOver += OnTimeOver;
     Events.playerDied += OnPlayerDied;
+    Events.levelPassed += OnLevelPassed;
+    Events.mpNextLevel += goToGlobalsCurrentLevel;
   }
 
   public override void _ExitTree()
   {
     base._ExitTree();
+    Events.timeOver -= OnTimeOver;
     Events.playerDied -= OnPlayerDied;
+    Events.levelPassed -= OnLevelPassed;
+    Events.mpNextLevel -= goToGlobalsCurrentLevel;
+  }
+
+  async void OnTimeOver()
+  {
+    if (!Globals.Instance.isMultiplayer) return;
+
+    // on time over, reload all the playres which have not completed the level yet
+    if (!Globals.Instance.playersCompleted.Contains(1))
+    {
+      await reloadPlayer1();
+    }
+    if (!Globals.Instance.playersCompleted.Contains(2))
+    {
+      await reloadPlayer2();
+    }
   }
 
   async void OnPlayerDied(int playerId)
@@ -37,16 +52,28 @@ public class MPBase : Node
 
     if (playerId == 1)
     {
-      await viewport1.GetChild(0).GetNode<Player>("Player").OnPlayerDied(playerId);
-      viewport1.GetChild(0).QueueFree();
-      loadPlayer1();
+      await reloadPlayer1();
     }
     else if (playerId == 2)
     {
-      await viewport2.GetChild(0).GetNode<Player>("Player").OnPlayerDied(playerId);
-      viewport2.GetChild(0).QueueFree();
-      loadPlayer2();
+      await reloadPlayer2();
     }
+  }
+
+  async Task reloadPlayer1()
+  {
+    await viewport1.GetChild(0).GetNode<Player>("Player").OnPlayerDied(1);
+    viewport1.GetChild(0).Free();
+    // viewport1.GetChild(0).QueueFree();
+    loadPlayer1();
+  }
+
+  async Task reloadPlayer2()
+  {
+    await viewport2.GetChild(0).GetNode<Player>("Player").OnPlayerDied(2);
+    viewport2.GetChild(0).Free();
+    // viewport2.GetChild(0).QueueFree();
+    loadPlayer2();
   }
 
   void loadPlayer1()
@@ -88,10 +115,41 @@ public class MPBase : Node
     cam.Current = true;
     cam.LimitLeft = 0;
     cam.LimitTop = 0;
-    cam.LimitRight = Globals.Instance.cameraLimits[levelNum][0];
-    cam.LimitBottom = Globals.Instance.cameraLimits[levelNum][1];
+    cam.LimitRight = Globals.Instance.cameraLimits[levelNum - 1][0];
+    cam.LimitBottom = Globals.Instance.cameraLimits[levelNum - 1][1];
     cam.SmoothingEnabled = true;
     cam.SmoothingSpeed = 2.5f;
+    cam.Zoom = new Vector2(0.75f, 0.75f);
     return cam;
+  }
+
+  void OnLevelPassed(int playerId)
+  {
+    if (!Globals.Instance.isMultiplayer) return;
+
+    if (playerId == 1)
+    {
+      viewport1.GetChild(0).QueueFree();
+      var endScreenPacked = GD.Load<PackedScene>("res://src/GUI/LevelEndScreen.tscn");
+      var endScreen = endScreenPacked.Instance();
+      viewport1.AddChild(endScreen);
+    }
+    else if (playerId == 2)
+    {
+      viewport2.GetChild(0).QueueFree();
+      var endScreenPacked = GD.Load<PackedScene>("res://src/GUI/LevelEndScreen.tscn");
+      var endScreen = endScreenPacked.Instance();
+      viewport2.AddChild(endScreen);
+    }
+  }
+
+  public void goToGlobalsCurrentLevel()
+  {
+    this.levelNum = (int)Globals.Instance.currentLevel + 1;
+    level = GD.Load<PackedScene>("res://src/levels/Level" + this.levelNum + ".tscn");
+    level.ResourceLocalToScene = true;
+
+    loadPlayer1();
+    loadPlayer2();
   }
 }

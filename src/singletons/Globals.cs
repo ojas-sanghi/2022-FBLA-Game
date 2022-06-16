@@ -7,9 +7,11 @@ public class Globals : Node
 {
   public static Globals Instance;
 
-  // TODO: make this false by default, and set this from the menu's button
-  public bool isMultiplayer = true;
+  public bool isMultiplayer = false;
   public List<List<int>> cameraLimits = new List<List<int>>();
+
+  // list of player ids that have completed the level
+  public List<int> playersCompleted = new List<int>();
 
   public Enums.Levels currentLevel;
   public Dictionary<Enums.Levels, PackedScene> levels;

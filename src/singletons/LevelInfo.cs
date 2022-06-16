@@ -6,8 +6,9 @@ public class LevelInfo : Node
   public static LevelInfo Instance;
 
   public int coinsRequired;
-  public int parTimeSeconds;
   public Dictionary<int, int> coinsCollected = new();
+
+  public Dictionary<Enums.Levels, int> levelTimeLimits;
 
   public LevelInfo()
   {
@@ -20,6 +21,15 @@ public class LevelInfo : Node
 
     resetAllCoinsCollected();
     Events.coinCollected += OnCoinCollected;
+    Events.levelPassed += resetCoinsCollected;
+
+    levelTimeLimits = new() 
+    {
+      { Enums.Levels.Level1, 120 },
+      { Enums.Levels.Level2, 30 },
+      { Enums.Levels.Level3, 15 }
+    };
+
   }
 
   void OnCoinCollected(BaseCoin coin, int id)
@@ -30,29 +40,7 @@ public class LevelInfo : Node
 
   public void resetCoinsCollected(int id)
   {
-    GD.Print(id);
-    // print the dictionary to console
-    string output = "";
-    foreach (KeyValuePair<int, int> kvp in coinsCollected)
-    {
-      output += string.Format("Player = {0}, Coins = {1}", kvp.Key, kvp.Value);
-      output += "\n";
-    }
-    GD.Print(output);
-    GD.Print(coinsCollected.Count);
-    GD.Print("-----");
-
     coinsCollected[id] = 0;
-
-    output = "";
-    foreach (KeyValuePair<int, int> kvp in coinsCollected)
-    {
-      output += string.Format("Player = {0}, Coins = {1}", kvp.Key, kvp.Value);
-      output += "\n";
-    }
-    GD.Print(output);
-    GD.Print(coinsCollected.Count);
-    GD.Print("function over-----");
   }
 
   public void resetAllCoinsCollected()

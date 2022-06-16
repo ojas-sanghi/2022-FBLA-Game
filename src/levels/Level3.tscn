@@ -26,9 +26,6 @@ margin_bottom = 840.0
 rect_min_size = Vector2( 382, 382 )
 texture = ExtResource( 8 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BgTiles" type="TileMap" parent="."]
 tile_set = ExtResource( 10 )
@@ -66,28 +63,27 @@ margin_right = 1141.0
 margin_bottom = 75.0
 
 [node name="EndPortal" parent="." instance=ExtResource( 6 )]
-position = Vector2( 153, 69 )
+position = Vector2( 175, 128 )
 
 [node name="InstanceableAudioPlayer" parent="." instance=ExtResource( 5 )]
 song = ExtResource( 9 )
 
 [node name="Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 835, 684 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 612, 1460 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1189, 685 )
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
 [node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 11 )]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1409, 1638 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="SPCamera" type="Camera2D" parent="Player"]
+position = Vector2( 19, -4 )
 zoom = Vector2( 0.5, 0.5 )
 limit_left = 0
 limit_top = 0

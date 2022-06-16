@@ -18,34 +18,34 @@ anchor_bottom = 1.0
 texture = ExtResource( 6 )
 expand = true
 
-[node name="Title" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -500.0
-margin_top = 39.0
-margin_right = 500.0
-margin_bottom = 114.0
+margin_left = -368.0
+margin_top = 93.0
+margin_right = 374.0
+margin_bottom = 544.0
+custom_constants/separation = 166
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 742.0
+margin_bottom = 75.0
 custom_fonts/font = ExtResource( 1 )
 text = "LEVEL END"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -212.0
-margin_top = -314.0
-margin_right = 213.0
-margin_bottom = -214.0
-custom_constants/separation = 30
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 241.0
+margin_right = 742.0
+margin_bottom = 276.0
+alignment = 1
 
-[node name="ScoreCounter" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 0.0
+[node name="ScoreCounter" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 263.0
 margin_top = 0.0
-margin_right = 425.0
+margin_right = 478.0
 margin_bottom = 35.0
 custom_fonts/font = ExtResource( 2 )
 text = "Score:"

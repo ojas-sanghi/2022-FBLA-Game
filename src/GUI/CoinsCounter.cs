@@ -35,7 +35,6 @@ public class CoinsCounter : Panel
 
   void UpdateText()
   {
-    GD.Print(playerId);
     label.Text = $": {LevelInfo.Instance.coinsCollected[playerId]}/{LevelInfo.Instance.coinsRequired}";
   }
 }
