@@ -2,7 +2,6 @@ using Godot;
 
 public class Enemy : Area2D
 {
-
   [Export] int speed = 200;
   [Export] int moveDist = 100;
 

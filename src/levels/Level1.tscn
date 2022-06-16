@@ -93,8 +93,10 @@ margin_bottom = 75.0
 position = Vector2( 2466, 895 )
 
 [node name="Enemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 612, 946 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1004, 491 )
 
 [node name="Instructions" type="Control" parent="."]
 margin_right = 40.0
@@ -197,7 +199,6 @@ song = ExtResource( 12 )
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
 [node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 6 )]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 385, 721 )

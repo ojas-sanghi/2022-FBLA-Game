@@ -64,7 +64,6 @@ public class MPBase : Node
   {
     await viewport1.GetChild(0).GetNode<Player>("Player").OnPlayerDied(1);
     viewport1.GetChild(0).Free();
-    // viewport1.GetChild(0).QueueFree();
     loadPlayer1();
   }
 
@@ -72,7 +71,6 @@ public class MPBase : Node
   {
     await viewport2.GetChild(0).GetNode<Player>("Player").OnPlayerDied(2);
     viewport2.GetChild(0).Free();
-    // viewport2.GetChild(0).QueueFree();
     loadPlayer2();
   }
 

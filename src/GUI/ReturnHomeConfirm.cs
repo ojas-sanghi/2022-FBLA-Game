@@ -4,6 +4,9 @@ using Godot;
 public class ReturnHomeConfirm : Control
 {
 
+  // flag to differentiate the overlay that is in SP, and the overlay that is in MP
+  [Export] bool isMPReturnHome = false;
+
   public override void _Ready()
   {
     this.Visible = false;
@@ -19,7 +22,21 @@ public class ReturnHomeConfirm : Control
 
   public void toggleSelf()
   {
-    GetTree().Paused = !GetTree().Paused;
-    this.Visible = !this.Visible;
+    if (Globals.Instance.isMultiplayer)
+    {
+      if (isMPReturnHome)
+      {
+        GetTree().Paused = !GetTree().Paused;
+        this.Visible = !this.Visible;
+      }
+    }
+    else
+    {
+      if (!isMPReturnHome)
+      {
+        GetTree().Paused = !GetTree().Paused;
+        this.Visible = !this.Visible;
+      }
+    }
   }
 }

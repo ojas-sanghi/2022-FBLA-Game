@@ -1,5 +1,5 @@
-using Godot;
 using System.Threading.Tasks;
+using Godot;
 
 public class Player : Actor
 {
@@ -17,7 +17,7 @@ public class Player : Actor
     base._Ready();
     sprite = GetNode<AnimatedSprite>("AnimatedSprite");
     Events.timeOver += OnPlayerDied;
-    // Events.playerDied += OnPlayerDied;
+    Events.playerDied += OnVoidPlayerDied;
 
     if (!Globals.Instance.isMultiplayer)
     {
@@ -31,7 +31,7 @@ public class Player : Actor
   public override void _ExitTree()
   {
     Events.timeOver -= OnPlayerDied;
-    // Events.playerDied -= OnPlayerDied;
+    Events.playerDied -= OnVoidPlayerDied;
   }
 
   public override void _PhysicsProcess(float delta)
@@ -65,19 +65,13 @@ public class Player : Actor
 
     // cap downward speed ot gravity limit
     if (newVel.y > gravityLimit)
-    {
       newVel.y = gravityLimit;
-    }
 
     if (direction.y == -1.0f)
-    {
       newVel.y = speed.y * direction.y;
-    }
 
     if (isJumpInterrupted)
-    {
       newVel.y = 0.0f;
-    }
 
     return newVel;
   }
@@ -125,13 +119,9 @@ public class Player : Actor
     // If they're going up, set the jumping animation
     // Otherwise, set the fall animation
     if (linearVel.y < 0)
-    {
       newAnim = "jump";
-    }
     else if (linearVel.y > 0 && !IsOnFloor())
-    {
       newAnim = "fall";
-    }
 
     // Play the new animation if it's different
     if (newAnim != _anim)
@@ -149,12 +139,20 @@ public class Player : Actor
     await OnPlayerDied(this.id);
   }
 
+  // exists just to accept playerDied signal
+  // because for some reason it can't connect to functions that return Task?
+  async void OnVoidPlayerDied(int id)
+  {
+    await OnPlayerDied(id);
+  }
+
   public async Task OnPlayerDied(int id)
   {
     if (id != this.id) return;
 
     // stop movement
     SetPhysicsProcess(false);
+    GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
 
     // reset coins collected
     LevelInfo.Instance.resetCoinsCollected(this.id);
@@ -171,7 +169,6 @@ public class Player : Actor
     sprite.Visible = false;
     await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
     sprite.Visible = true;
-    await ToSignal(GetTree().CreateTimer(0.3f), "timeout");
 
     if (!Globals.Instance.isMultiplayer)
     {
