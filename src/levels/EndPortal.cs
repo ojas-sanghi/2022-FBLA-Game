@@ -52,6 +52,8 @@ public class EndPortal : Area2D
     int currentLevelIndex = levelsList.IndexOf(Globals.Instance.currentLevel);
     int nextLevelIndex = currentLevelIndex + 1;
 
+    updateScore();
+
     if (nextLevelIndex >= levelsList.Count)
     {
       SceneChanger.Instance.GoToScene("res://src/GUI/EndScreen.tscn");
@@ -61,5 +63,11 @@ public class EndPortal : Area2D
       Globals.Instance.currentLevel = (Enums.Levels)nextLevelIndex;
       SceneChanger.Instance.GoToScene("res://src/GUI/LevelEndScreen.tscn");
     }
+  }
+
+  void updateScore()
+  {
+    // the time multiplier is done in TimeLeftLabel.cs
+    PlayerInfo.score += LevelInfo.Instance.coinsCollected[(int)Globals.Instance.currentLevel] * PlayerInfo.coinsScoreMultiplier;
   }
 }

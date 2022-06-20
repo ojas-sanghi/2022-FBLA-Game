@@ -18,7 +18,7 @@ public class Player : Actor
     sprite = GetNode<AnimatedSprite>("AnimatedSprite");
     Events.timeOver += OnPlayerDied;
     Events.playerDied += OnVoidPlayerDied;
-
+  
     if (!Globals.Instance.isMultiplayer)
     {
       // set id to 0 if singleplayer; will respond to both wasd and arrow keys

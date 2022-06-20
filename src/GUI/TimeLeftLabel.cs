@@ -16,6 +16,13 @@ public class TimeLeftLabel : Label
     timer.Connect("timeout", this, nameof(OnTimerTimeout));
 
     resetAndStartTimer();
+
+    Events.levelPassed += OnLevelPassed;
+  }
+
+  public override void _ExitTree()
+  {
+    Events.levelPassed -= OnLevelPassed;
   }
 
   public void resetAndStartTimer()
@@ -36,5 +43,15 @@ public class TimeLeftLabel : Label
     if (disabled) return;
     GD.Print(GetParent().Name);
     Events.publishTimeOver();
+  }
+
+  void OnLevelPassed()
+  {
+    // TODO
+    // accept the id parameter
+    // figure out how the sngletons deal with the different ids
+    // how to deal with different player's different scores and coins?
+    // where are those currently tracked?
+    PlayerInfo.score += LevelInfo.Instance.coinsCollected[(int)Globals.Instance.currentLevel] * PlayerInfo.coinsScoreMultiplier;
   }
 }

@@ -38,9 +38,20 @@ public class MPBase : Node
     // on time over, reload all the playres which have not completed the level yet
     if (!Globals.Instance.playersCompleted.Contains(1))
     {
-      await reloadPlayer1();
+      if (!Globals.Instance.playersCompleted.Contains(2))
+      {
+        // if both players need to be reset, then start the 1st, start 2nd, and await the 2nd
+        // this way they happen concurrently
+        // otherwise, the 2nd one waits for the first one, which takes 2x as long and looks weird
+        reloadPlayer1();
+        await reloadPlayer2();
+      }
+      else
+      {
+        await reloadPlayer1();
+      }
     }
-    if (!Globals.Instance.playersCompleted.Contains(2))
+    else if (!Globals.Instance.playersCompleted.Contains(2))
     {
       await reloadPlayer2();
     }
