@@ -15,7 +15,8 @@ corner_radius_bottom_left = 5
 anchor_right = 0.062
 anchor_bottom = 0.039
 margin_right = 10.96
-margin_bottom = -0.120003
+margin_bottom = -5.12
+rect_min_size = Vector2( 130, 37 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 

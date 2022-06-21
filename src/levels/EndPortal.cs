@@ -6,10 +6,12 @@ public class EndPortal : Area2D
 {
   CollisionShape2D collisionShape;
 
+  int id = 0;
+
   public override void _Ready()
   {
-    base._Ready();
-
+    GD.Print(((IndividualLevelInfo)GetParent()).id);
+    this.id = ((IndividualLevelInfo)GetParent()).id;
     // Note: by default, portal is b&w and the hitbox is disabled
     collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
     Events.coinCollected += OnCoinCollected;
@@ -23,7 +25,7 @@ public class EndPortal : Area2D
 
   void OnCoinCollected(BaseCoin coin, int id)
   {
-    // TODO: play a different animation when it unlocks
+    if (id != this.id) return;
     // Re-enable hitbox, give it color again
     if (LevelInfo.Instance.coinsCollected[id] >= LevelInfo.Instance.coinsRequired)
     {
@@ -32,7 +34,6 @@ public class EndPortal : Area2D
       GetNode<AnimatedSprite>("Sprite").Playing = true;
     }
   }
-
 
   void OnEndPortalBodyEntered(Node body)
   {

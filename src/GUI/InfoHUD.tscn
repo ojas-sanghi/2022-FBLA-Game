@@ -51,27 +51,27 @@ custom_constants/separation = 400
 alignment = 1
 
 [node name="MPHUD" type="VBoxContainer" parent="MPHUDs"]
-margin_left = 308.0
+margin_left = 280.0
 margin_right = 410.0
-margin_bottom = 34.0
+margin_bottom = 56.0
 
 [node name="ScoreCounter" parent="MPHUDs/MPHUD" instance=ExtResource( 1 )]
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 102.0
+margin_right = 130.0
 margin_bottom = 15.0
 
 [node name="CoinsCounter" parent="MPHUDs/MPHUD" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 19.0
-margin_right = 102.0
-margin_bottom = 19.0
+margin_right = 130.0
+margin_bottom = 56.0
 
 [node name="MPHUDBoth" type="VBoxContainer" parent="MPHUDs"]
 margin_left = 810.0
 margin_right = 957.0
-margin_bottom = 34.0
+margin_bottom = 56.0
 
 [node name="TimeLeftLabel" parent="MPHUDs/MPHUDBoth" groups=["MPTimeLeft"] instance=ExtResource( 2 )]
 margin_right = 147.0
@@ -79,13 +79,13 @@ margin_bottom = 15.0
 
 [node name="MPHUD2" type="VBoxContainer" parent="MPHUDs"]
 margin_left = 1357.0
-margin_right = 1459.0
-margin_bottom = 34.0
+margin_right = 1487.0
+margin_bottom = 56.0
 
 [node name="ScoreCounter" parent="MPHUDs/MPHUD2" instance=ExtResource( 1 )]
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 102.0
+margin_right = 130.0
 margin_bottom = 15.0
 playerId = 2
 
@@ -93,6 +93,6 @@ playerId = 2
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 19.0
-margin_right = 102.0
-margin_bottom = 19.0
+margin_right = 130.0
+margin_bottom = 56.0
 playerId = 2

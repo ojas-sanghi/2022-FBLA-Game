@@ -8,6 +8,7 @@ public class ReturnHomeButton : Button
     GetTree().Paused = false;
     Globals.Instance.currentLevel = Enums.Levels.Level1;
     Globals.Instance.isMultiplayer = false;
+    LevelInfo.Instance.resetAllScoreCollected();
     SceneChanger.Instance.GoToScene("res://src/GUI/TitleScreen.tscn");
   }
 }
