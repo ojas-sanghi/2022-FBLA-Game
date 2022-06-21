@@ -8,9 +8,9 @@ public class IndividualLevelInfo : Node2D
 
   public override void _EnterTree()
   {
-    base._EnterTree();
     Globals.Instance.playersCompleted = new();
     LevelInfo.Instance.coinsRequired = coinsRequired;
     LevelInfo.Instance.resetCoinsCollected(id);
+    LevelInfo.Instance.resetScoreCollected(id);
   }
 }

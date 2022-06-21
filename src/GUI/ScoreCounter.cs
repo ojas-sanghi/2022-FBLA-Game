@@ -7,6 +7,12 @@ public class ScoreCounter : Label
 
   public override void _Ready()
   {
+    if (!Globals.Instance.isMultiplayer)
+    {
+      playerId = 0;
+      // TODO: set playerID in multilpayer when we make the new post-level pipeline
+    }
+
     Events.scoreChanged += UpdateText;
     UpdateText(playerId);
   }
@@ -19,6 +25,6 @@ public class ScoreCounter : Label
   void UpdateText(int id)
   {
     if (id == playerId)
-      Text = $"Score: {PlayerInfo.score}";
+      Text = $"Score: {LevelInfo.Instance.scoreCollected[playerId]}";
   }
 }

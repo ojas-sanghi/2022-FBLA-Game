@@ -154,8 +154,9 @@ public class Player : Actor
     SetPhysicsProcess(false);
     GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
 
-    // reset coins collected
+    // reset coins and score collected
     LevelInfo.Instance.resetCoinsCollected(this.id);
+    LevelInfo.Instance.resetScoreCollected(this.id);
 
     // play death anim
     sprite.Playing = false;

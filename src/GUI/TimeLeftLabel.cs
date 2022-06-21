@@ -41,17 +41,12 @@ public class TimeLeftLabel : Label
   void OnTimerTimeout()
   {
     if (disabled) return;
-    GD.Print(GetParent().Name);
     Events.publishTimeOver();
   }
 
-  void OnLevelPassed()
+  void OnLevelPassed(int id)
   {
-    // TODO
-    // accept the id parameter
-    // figure out how the sngletons deal with the different ids
-    // how to deal with different player's different scores and coins?
-    // where are those currently tracked?
-    PlayerInfo.score += LevelInfo.Instance.coinsCollected[(int)Globals.Instance.currentLevel] * PlayerInfo.coinsScoreMultiplier;
+    LevelInfo.Instance.scoreCollected[id] += (int) (timer.TimeLeft * PlayerInfo.timeScoreMultiplier);
+    Events.publishScoreChanged(id);
   }
 }

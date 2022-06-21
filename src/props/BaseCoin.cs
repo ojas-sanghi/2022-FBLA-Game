@@ -3,7 +3,6 @@ using Godot;
 
 public class BaseCoin : Area2D
 {
-  public int goldValue = 0;
   public int scoreValue = 0;
 
   async void OnCoinBodyEntered(Node n)
