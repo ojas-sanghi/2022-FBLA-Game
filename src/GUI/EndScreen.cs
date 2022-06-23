@@ -3,6 +3,8 @@ using Godot;
 
 public class EndScreen : Control
 {
+  [Export] int playerId = 0;
+
   string name;
 
   Control saveScore;
@@ -32,7 +34,7 @@ public class EndScreen : Control
       resultLabel.Visible = true;
       resultLabel.Text = "Score submitted!";
       resultLabel.AddColorOverride("font_color", new Color(0, 1, 0));
-      Globals.Instance.highScores.Add(name, PlayerInfo.score);
+      Globals.Instance.highScores.Add(name, LevelInfo.Instance.scoreCollected[playerId]);
     }
 
     File scoresFile = new File();

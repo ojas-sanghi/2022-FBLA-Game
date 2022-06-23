@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/levels/MPBase.cs" type="Script" id=2]
+[ext_resource path="res://assets/mp_win_end.png" type="Texture" id=3]
+[ext_resource path="res://assets/mp_lose_end.png" type="Texture" id=4]
 [ext_resource path="res://src/GUI/InfoHUD.tscn" type="PackedScene" id=5]
 
 [node name="MPBase" type="Node"]
@@ -25,6 +27,14 @@ size = Vector2( 957, 1080 )
 handle_input_locally = false
 render_target_update_mode = 3
 
+[node name="TextureRect" type="TextureRect" parent="Viewports/ViewportContainer/Viewport"]
+margin_right = 191.0
+margin_bottom = 216.0
+rect_scale = Vector2( 5, 5 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+
 [node name="ViewportContainer2" type="ViewportContainer" parent="Viewports"]
 margin_left = 962.0
 margin_right = 1920.0
@@ -38,6 +48,13 @@ size = Vector2( 958, 1080 )
 handle_input_locally = false
 render_target_update_mode = 3
 
+[node name="TextureRect" type="TextureRect" parent="Viewports/ViewportContainer2/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 5, 5 )
+texture = ExtResource( 4 )
+flip_h = true
+
 [node name="InfoHUD" parent="." instance=ExtResource( 5 )]
 margin_right = 251.0
 margin_bottom = 120.0
@@ -46,4 +63,5 @@ isMPHUD = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ReturnHomeConfirm" parent="CanvasLayer" instance=ExtResource( 1 )]
+visible = false
 isMPReturnHome = true

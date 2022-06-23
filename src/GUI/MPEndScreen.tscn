@@ -1,0 +1,284 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/fonts/ArcadeFont75.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/ArcadeFont35.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/GUI/ScoreCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/GUI/MPEndScreen.cs" type="Script" id=4]
+[ext_resource path="res://src/GUI/Leaderboard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/GUI/ButtonTheme.tres" type="Theme" id=6]
+[ext_resource path="res://InstanceableAudioPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/music/menu music.mp3" type="AudioStream" id=8]
+[ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/mp_win_end.png" type="Texture" id=10]
+[ext_resource path="res://assets/mp_lose_end.png" type="Texture" id=11]
+[ext_resource path="res://src/GUI/EndScreen.cs" type="Script" id=12]
+
+[node name="MPEndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -963.0
+script = ExtResource( 4 )
+
+[node name="Player1End" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 957, 1080 )
+script = ExtResource( 12 )
+playerId = 1
+
+[node name="TextureRect" type="TextureRect" parent="Player1End"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="ResultText" type="Label" parent="Player1End"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -270.5
+margin_top = 53.0
+margin_right = 277.5
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 1 )
+text = "YOU WIN"
+
+[node name="ScoreCounter" parent="Player1End" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -374.0
+margin_right = 180.0
+margin_bottom = -317.0
+custom_fonts/font = ExtResource( 2 )
+text = "Score: 200"
+
+[node name="SaveScore" type="Control" parent="Player1End"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NameEnterLabel" type="Label" parent="Player1End/SaveScore"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -446.5
+margin_top = -212.0
+margin_right = 457.5
+margin_bottom = -177.0
+custom_fonts/font = ExtResource( 2 )
+text = "enter name to save highscore"
+align = 1
+valign = 3
+autowrap = true
+
+[node name="NameEnter" type="LineEdit" parent="Player1End/SaveScore"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -454.5
+margin_top = -105.0
+margin_right = 457.5
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+expand_to_text_length = true
+placeholder_text = "player 1"
+
+[node name="SubmitButton" type="Button" parent="Player1End/SaveScore"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = 49.0
+margin_right = 135.0
+margin_bottom = 123.0
+theme = ExtResource( 6 )
+text = "Submit"
+
+[node name="ResultLabel" type="Label" parent="Player1End/SaveScore"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -470.5
+margin_top = 162.0
+margin_right = 473.5
+margin_bottom = 252.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Error: duplicate names not allowed"
+align = 1
+valign = 3
+autowrap = true
+
+[node name="Leaderboard" parent="Player1End" instance=ExtResource( 5 )]
+visible = false
+margin_left = -59.797
+margin_top = 103.96
+margin_right = 48.055
+margin_bottom = 129.6
+rect_clip_content = false
+
+[node name="ToggleLeaderboard" type="Button" parent="Player1End"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -416.5
+margin_top = -133.0
+margin_right = 416.5
+margin_bottom = -58.0
+theme = ExtResource( 6 )
+text = "Toggle leaderboard"
+
+[node name="Player2End" type="Control" parent="."]
+margin_left = 962.0
+margin_right = 1919.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 957, 1080 )
+script = ExtResource( 12 )
+playerId = 2
+
+[node name="TextureRect" type="TextureRect" parent="Player2End"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+expand = true
+flip_h = true
+
+[node name="ResultText" type="Label" parent="Player2End"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -359.0
+margin_top = 53.0
+margin_right = 359.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 1 )
+text = "YOU lose"
+
+[node name="ScoreCounter" parent="Player2End" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -374.0
+margin_right = 180.0
+margin_bottom = -317.0
+custom_fonts/font = ExtResource( 2 )
+text = "Score: 200"
+playerId = 2
+
+[node name="SaveScore" type="Control" parent="Player2End"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="NameEnterLabel" type="Label" parent="Player2End/SaveScore"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -446.5
+margin_top = -212.0
+margin_right = 457.5
+margin_bottom = -125.0
+custom_fonts/font = ExtResource( 2 )
+text = "enter name to save highscore"
+align = 1
+valign = 3
+autowrap = true
+
+[node name="NameEnter" type="LineEdit" parent="Player2End/SaveScore"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -454.5
+margin_top = -105.0
+margin_right = 457.5
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+expand_to_text_length = true
+placeholder_text = "player 2"
+
+[node name="SubmitButton" type="Button" parent="Player2End/SaveScore"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -135.0
+margin_top = 49.0
+margin_right = 135.0
+margin_bottom = 123.0
+theme = ExtResource( 6 )
+text = "Submit"
+
+[node name="ResultLabel" type="Label" parent="Player2End/SaveScore"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -470.5
+margin_top = 162.0
+margin_right = 473.5
+margin_bottom = 252.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Error: duplicate names not allowed"
+align = 1
+valign = 3
+autowrap = true
+
+[node name="Leaderboard" parent="Player2End" instance=ExtResource( 5 )]
+visible = false
+margin_left = -45.797
+margin_top = 103.96
+margin_right = 47.055
+margin_bottom = 129.6
+rect_clip_content = false
+
+[node name="ToggleLeaderboard" type="Button" parent="Player2End"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -416.5
+margin_top = -133.0
+margin_right = 416.5
+margin_bottom = -58.0
+theme = ExtResource( 6 )
+text = "Toggle leaderboard"
+
+[node name="NameEnterLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.476
+anchor_top = 0.304
+anchor_right = 1.595
+anchor_bottom = 0.348
+margin_left = 0.467987
+margin_top = -0.320007
+margin_right = -0.415039
+margin_bottom = 0.159973
+custom_fonts/font = ExtResource( 2 )
+text = "enter name to save highscore"
+align = 1
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 9 )]
+visible = false
+
+[node name="InstanceableAudioPlayer" parent="." instance=ExtResource( 7 )]
+song = ExtResource( 8 )
+
+[connection signal="pressed" from="Player1End/SaveScore/SubmitButton" to="Player1End" method="OnSubmitButtonPressed"]
+[connection signal="pressed" from="Player1End/ToggleLeaderboard" to="Player1End" method="OnToggleLeaderboardPressed"]
+[connection signal="pressed" from="Player2End/SaveScore/SubmitButton" to="Player2End" method="OnSubmitButtonPressed"]
+[connection signal="pressed" from="Player2End/ToggleLeaderboard" to="Player2End" method="OnToggleLeaderboardPressed"]
