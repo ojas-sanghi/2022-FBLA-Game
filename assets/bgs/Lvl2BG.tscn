@@ -10,55 +10,53 @@
 [node name="Lvl2BG" type="ParallaxBackground"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1920, 0 )
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1920, 1080 )
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
-expand = true
+centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 1920, 0 )
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer2"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1920, 1080 )
+[node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
+scale = Vector2( 5, 5 )
 texture = ExtResource( 6 )
-expand = true
+centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 1920, 0 )
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer3"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1920, 1080 )
+[node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
+scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
-expand = true
+centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 1920, 0 )
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer4"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1920, 1080 )
+[node name="Sprite" type="Sprite" parent="ParallaxLayer4"]
+scale = Vector2( 5, 5 )
 texture = ExtResource( 5 )
-expand = true
+centered = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 1920, 0 )
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer5"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1920, 1080 )
+[node name="Sprite" type="Sprite" parent="ParallaxLayer5"]
+scale = Vector2( 5, 5 )
 texture = ExtResource( 4 )
-expand = true
+centered = false
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer6"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 1920, 1080 )
+[node name="Sprite" type="Sprite" parent="ParallaxLayer6"]
+scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
-expand = true
+centered = false

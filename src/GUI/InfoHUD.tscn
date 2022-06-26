@@ -12,7 +12,6 @@ margin_right = 1920.0
 script = ExtResource( 5 )
 
 [node name="SPHUDs" type="HBoxContainer" parent="."]
-visible = false
 anchor_right = 1.0
 margin_bottom = 105.0
 size_flags_horizontal = 3
@@ -21,12 +20,11 @@ alignment = 1
 [node name="SPHUD" type="VBoxContainer" parent="SPHUDs"]
 margin_left = 861.0
 margin_right = 1008.0
-margin_bottom = 105.0
+margin_bottom = 106.0
 custom_constants/separation = 20
 
 [node name="ScoreCounter" parent="SPHUDs/SPHUD" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 0.0
 margin_right = 147.0
 margin_bottom = 15.0
 playerId = 0
@@ -37,14 +35,14 @@ margin_right = 147.0
 margin_bottom = 50.0
 
 [node name="CoinsCounter" parent="SPHUDs/SPHUD" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 70.0
-margin_right = 147.0
-margin_bottom = 70.0
+margin_right = 121.0
+margin_bottom = 106.0
+size_flags_horizontal = 0
 playerId = 0
 
 [node name="MPHUDs" type="HBoxContainer" parent="."]
+visible = false
 margin_right = 1768.0
 margin_bottom = 34.0
 custom_constants/separation = 400
@@ -56,14 +54,10 @@ margin_right = 410.0
 margin_bottom = 56.0
 
 [node name="ScoreCounter" parent="MPHUDs/MPHUD" instance=ExtResource( 1 )]
-margin_left = 0.0
-margin_top = 0.0
 margin_right = 130.0
 margin_bottom = 15.0
 
 [node name="CoinsCounter" parent="MPHUDs/MPHUD" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 19.0
 margin_right = 130.0
 margin_bottom = 56.0
@@ -83,15 +77,11 @@ margin_right = 1487.0
 margin_bottom = 56.0
 
 [node name="ScoreCounter" parent="MPHUDs/MPHUD2" instance=ExtResource( 1 )]
-margin_left = 0.0
-margin_top = 0.0
 margin_right = 130.0
 margin_bottom = 15.0
 playerId = 2
 
 [node name="CoinsCounter" parent="MPHUDs/MPHUD2" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 19.0
 margin_right = 130.0
 margin_bottom = 56.0

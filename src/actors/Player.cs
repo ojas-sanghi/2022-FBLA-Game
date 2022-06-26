@@ -156,7 +156,7 @@ public class Player : Actor
 
     // reset coins and score collected
     LevelInfo.Instance.resetCoinsCollected(this.id);
-    LevelInfo.Instance.resetScoreCollected(this.id);
+    LevelInfo.Instance.resetScoreCollectedAfterDeath(this.id);
 
     // play death anim
     sprite.Playing = false;

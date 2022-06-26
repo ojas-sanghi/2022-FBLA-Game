@@ -1,15 +1,14 @@
 using System;
 using Godot;
 
-public class CoinsCounter : Panel
+public class CoinsCounter : HBoxContainer
 {
   [Export] int playerId = 1;
 
   Label label;
   public override void _Ready()
   {
-    label = FindNode("Label") as Label;
-    // TODO: figure out how to make the coins required part actually show at levle start
+    label = GetNode<Label>("Label");
     UpdateText();
 
     Events.coinCollected += UpdateText;

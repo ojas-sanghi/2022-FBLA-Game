@@ -15,6 +15,7 @@
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 12 )
+coinsRequired = 5
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
@@ -25,14 +26,13 @@ anchor_bottom = 1.0
 margin_right = -1652.0
 margin_bottom = -645.0
 rect_min_size = Vector2( 268, 435 )
-rect_scale = Vector2( 7, 7 )
 texture = ExtResource( 8 )
 expand = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 10 )
 format = 1
-tile_data = PoolIntArray( 2031618, 9, 0, 2031619, 10, 0, 2031620, 10, 0, 2031621, 10, 0, 2031622, 10, 0, 2031623, 10, 0, 2031624, 10, 0, 2031625, 11, 0 )
+tile_data = PoolIntArray( 2031619, 3, 0, 2031620, 3, 0, 2031621, 3, 0, 2031622, 3, 0, 2031623, 3, 0, 2031624, 3, 0, 2031625, 26, 0 )
 
 [node name="Coins" type="Node2D" parent="."]
 
