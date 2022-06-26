@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/space city tileset.png-746fbf05f43f2feb1178ac8f414f627f.stex"
+path="res://.import/tile_dark_2_side.png-425aefbb081e81d7b1cb585b28a875e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/space city tileset.png"
-dest_files=[ "res://.import/space city tileset.png-746fbf05f43f2feb1178ac8f414f627f.stex" ]
+source_file="res://assets/tile_dark_2_side.png"
+dest_files=[ "res://.import/tile_dark_2_side.png-425aefbb081e81d7b1cb585b28a875e9.stex" ]
 
 [params]
 

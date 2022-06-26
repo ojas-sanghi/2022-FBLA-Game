@@ -11,6 +11,5 @@ public class IndividualLevelInfo : Node2D
     Globals.Instance.playersCompleted = new();
     LevelInfo.Instance.coinsRequired = coinsRequired;
     LevelInfo.Instance.resetCoinsCollected(id);
-    LevelInfo.Instance.resetScoreCollected(id);
   }
 }

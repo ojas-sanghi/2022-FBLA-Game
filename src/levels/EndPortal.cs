@@ -10,7 +10,6 @@ public class EndPortal : Area2D
 
   public override void _Ready()
   {
-    GD.Print(((IndividualLevelInfo)GetParent()).id);
     this.id = ((IndividualLevelInfo)GetParent()).id;
     // Note: by default, portal is b&w and the hitbox is disabled
     collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");

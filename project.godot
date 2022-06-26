@@ -13,6 +13,7 @@ config_version=4
 config/name="2022 FBLA Game"
 run/main_scene="res://src/GUI/TitleScreen.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

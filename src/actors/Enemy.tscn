@@ -50,7 +50,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 1.00001 )
-scale = Vector2( 6.64286, 6.45 )
+scale = Vector2( 6.45, 6.45 )
 frames = SubResource( 2 )
 animation = "boing"
 frame = 1

@@ -1,0 +1,178 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/ArcadeFont15.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/GUI/InfoHUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/props/GoldCoin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/GUI/ReturnHomeConfirm.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/actors/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/levels/EndPortal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://InstanceableAudioPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/music/spaceship level.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/shop_screen.png" type="Texture" id=10]
+[ext_resource path="res://src/levels/IndividualLevelInfo.cs" type="Script" id=11]
+
+[node name="Level0" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="SpaceBG" type="TextureRect" parent="CanvasLayer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="GoldCoin" parent="Coins" instance=ExtResource( 3 )]
+position = Vector2( 235, 469 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InfoHUD" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = 960.0
+margin_top = 25.0
+margin_right = 1141.0
+margin_bottom = 75.0
+
+[node name="EndPortal" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1054, 874 )
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1021, 323 )
+
+[node name="Instructions" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Instruction1" type="Label" parent="Instructions"]
+margin_left = 104.0
+margin_top = 801.0
+margin_right = 446.0
+margin_bottom = 834.0
+custom_fonts/font = ExtResource( 1 )
+text = "Use WASD or the arrow keys to move"
+autowrap = true
+
+[node name="Instruction9" type="Label" parent="Instructions"]
+margin_left = 100.0
+margin_top = 709.0
+margin_right = 442.0
+margin_bottom = 742.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press W, the up arrow, or space to jump"
+autowrap = true
+
+[node name="Instruction10" type="Label" parent="Instructions"]
+margin_left = 323.0
+margin_top = 624.0
+margin_right = 665.0
+margin_bottom = 675.0
+custom_fonts/font = ExtResource( 1 )
+text = "the longer you press it, the further you go!"
+autowrap = true
+
+[node name="Instruction11" type="Label" parent="Instructions"]
+margin_left = 799.0
+margin_top = 617.0
+margin_right = 1141.0
+margin_bottom = 668.0
+custom_fonts/font = ExtResource( 1 )
+text = "press jump while in the air to double jump"
+autowrap = true
+
+[node name="Instruction2" type="Label" parent="Instructions"]
+margin_left = 471.0
+margin_top = 850.0
+margin_right = 724.0
+margin_bottom = 869.0
+custom_colors/font_color = Color( 0.65098, 0.117647, 0.117647, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Avoid the enemy"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction3" type="Label" parent="Instructions"]
+margin_left = 379.0
+margin_top = 542.0
+margin_right = 657.0
+margin_bottom = 564.0
+custom_fonts/font = ExtResource( 1 )
+text = "collect the coin!"
+autowrap = true
+
+[node name="Instruction4" type="Label" parent="Instructions"]
+margin_left = 706.0
+margin_top = 252.0
+margin_right = 1067.0
+margin_bottom = 313.0
+custom_fonts/font = ExtResource( 1 )
+text = "you need coins to progress, plus they increase your score"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction5" type="Label" parent="Instructions"]
+margin_left = 81.0
+margin_top = 246.0
+margin_right = 442.0
+margin_bottom = 307.0
+custom_fonts/font = ExtResource( 1 )
+text = "alien coins are optional, but boost your score"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction8" type="Label" parent="Instructions"]
+margin_left = 1463.0
+margin_top = 309.0
+margin_right = 1824.0
+margin_bottom = 378.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press escape at any time to pause and return to the title screen"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction6" type="Label" parent="Instructions"]
+margin_left = 2134.0
+margin_top = 879.0
+margin_right = 2495.0
+margin_bottom = 940.0
+custom_fonts/font = ExtResource( 1 )
+text = "once you collect enough coins, the wormhole will open and you can go to the next level!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ReturnHomeConfirm" parent="CanvasLayer3" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 158, 909 )
+
+[node name="SPCamera" type="Camera2D" parent="Player"]
+zoom = Vector2( 0.75, 0.75 )
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 2.5
+
+[node name="InstanceableAudioPlayer" parent="." instance=ExtResource( 8 )]
+song = ExtResource( 9 )

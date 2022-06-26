@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/space city tileset.png-746fbf05f43f2feb1178ac8f414f627f.stex"
+path="res://.import/level_2_layer_2_far_mountains.png-45df2c9bbf70033b5dc8026b95431861.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/space city tileset.png"
-dest_files=[ "res://.import/space city tileset.png-746fbf05f43f2feb1178ac8f414f627f.stex" ]
+source_file="res://assets/bgs/level_2_layer_2_far_mountains.png"
+dest_files=[ "res://.import/level_2_layer_2_far_mountains.png-45df2c9bbf70033b5dc8026b95431861.stex" ]
 
 [params]
 

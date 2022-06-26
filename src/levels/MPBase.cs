@@ -11,7 +11,6 @@ public class MPBase : Node
 
   public override void _Ready()
   {
-    return;
     viewport1 = GetNode<Viewport>("Viewports/ViewportContainer/Viewport");
     viewport2 = GetNode<Viewport>("Viewports/ViewportContainer2/Viewport");
 

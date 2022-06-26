@@ -11,8 +11,12 @@ public class Enemy : Area2D
   float rightEnd;
   float leftEnd;
 
+  AnimatedSprite sprite;
+
   public override void _Ready()
   {
+    sprite = GetNode<AnimatedSprite>("AnimatedSprite");
+
     rightEnd = Position.x + moveDist;
     leftEnd = Position.x - moveDist;
   }
@@ -33,9 +37,15 @@ public class Enemy : Area2D
     }
 
     if (hitRightExtreme)
+    {
       Position = new Vector2(Position.x - speed * delta, Position.y);
+      sprite.FlipH = true;
+    }
     else if (hitLeftExtreme)
+    {
       Position = new Vector2(Position.x + speed * delta, Position.y);
+      sprite.FlipH = false;
+    }
   }
 
   void OnEnemyBodyEntered(Node body)
