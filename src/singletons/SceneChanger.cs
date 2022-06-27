@@ -52,11 +52,4 @@ public class SceneChanger : Control
 
     await FadeIn();
   }
-
-  // TODO: figoure ouut how to fade out/in when going to end screen in MP mode
-  // i made animation pl[auer tracks in scene changer for the player1 and 2 so we can black out/in those halves of the screen
-  // so test those out and see where to go from there
-  // last time the await fadeout then await fadein didnt work but it might be different? well see
-
-  /////////////////
 }
