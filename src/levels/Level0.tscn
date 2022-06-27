@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/fonts/ArcadeFont15.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/GUI/InfoHUD.tscn" type="PackedScene" id=2]
@@ -9,11 +9,34 @@
 [ext_resource path="res://src/levels/EndPortal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://InstanceableAudioPlayer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/music/spaceship level.mp3" type="AudioStream" id=9]
-[ext_resource path="res://assets/shop_screen.png" type="Texture" id=10]
+[ext_resource path="res://assets/tutorial bg.png" type="Texture" id=10]
 [ext_resource path="res://src/levels/IndividualLevelInfo.cs" type="Script" id=11]
+[ext_resource path="res://assets/tutorial tileset.tres" type="TileSet" id=12]
+[ext_resource path="res://src/props/AlienCoin.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/levels/InstructionLabel.cs" type="Script" id=14]
+[ext_resource path="res://src/props/InstructionArea.tscn" type="PackedScene" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 75.125, 107.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 54.25, 132 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 125.5, 37.125 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 92.75, 127.063 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 81.5, 156.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 53.5, 54 )
 
 [node name="Level0" type="Node2D"]
 script = ExtResource( 11 )
+coinsRequired = 2
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = -1
@@ -23,14 +46,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 10 )
 expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="BgTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 12 )
 format = 1
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, 65535, 0, 0, 30, 0, 0, 131071, 0, 0, 65566, 0, 0, 196607, 0, 0, 131102, 0, 0, 262143, 0, 0, 196638, 0, 0, 327679, 0, 0, 262174, 0, 0, 393215, 0, 0, 327710, 0, 0, 458751, 0, 0, 393246, 0, 0, 524287, 0, 0, 458765, 11, 0, 458766, 11, 0, 458782, 0, 0, 589823, 0, 0, 524318, 0, 0, 655359, 0, 0, 589854, 0, 0, 720895, 0, 0, 655390, 0, 0, 786431, 0, 0, 720926, 0, 0, 851967, 0, 0, 786462, 0, 0, 917503, 0, 0, 851998, 0, 0, 983039, 0, 0, 917534, 0, 0, 1048575, 0, 0, 983040, 11, 0, 983041, 11, 0, 983042, 11, 0, 983043, 11, 0, 983044, 11, 0, 983045, 11, 0, 983046, 11, 0, 983047, 11, 0, 983048, 11, 0, 983049, 11, 0, 983050, 11, 0, 983051, 11, 0, 983052, 11, 0, 983053, 11, 0, 983054, 11, 0, 983055, 11, 0, 983056, 11, 0, 983057, 11, 0, 983058, 11, 0, 983059, 11, 0, 983060, 11, 0, 983061, 11, 0, 983062, 11, 0, 983063, 11, 0, 983064, 11, 0, 983065, 11, 0, 983066, 11, 0, 983067, 11, 0, 983068, 11, 0, 983069, 11, 0, 983070, 0, 0, 1114111, 0, 0, 1048576, 11, 0, 1048577, 11, 0, 1048578, 11, 0, 1048579, 11, 0, 1048580, 11, 0, 1048581, 11, 0, 1048582, 11, 0, 1048583, 11, 0, 1048584, 11, 0, 1048585, 11, 0, 1048586, 11, 0, 1048587, 11, 0, 1048588, 11, 0, 1048589, 11, 0, 1048590, 11, 0, 1048591, 11, 0, 1048592, 11, 0, 1048593, 11, 0, 1048594, 11, 0, 1048595, 11, 0, 1048596, 11, 0, 1048597, 11, 0, 1048598, 11, 0, 1048599, 11, 0, 1048600, 11, 0, 1048601, 11, 0, 1048602, 11, 0, 1048603, 11, 0, 1048604, 11, 0, 1048605, 11, 0, 1048606, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 11, 0, 1114124, 11, 0, 1114125, 11, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114136, 0, 0, 1114137, 0, 0, 1114138, 0, 0, 1114139, 0, 0, 1114140, 0, 0, 1114141, 0, 0, 1114142, 0, 0 )
+
+[node name="HardTiles" type="TileMap" parent="."]
+tile_set = ExtResource( 12 )
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, 65535, 0, 0, 30, 0, 0, 131071, 0, 0, 65566, 0, 0, 196607, 0, 0, 131102, 0, 0, 262143, 0, 0, 196638, 0, 0, 327679, 0, 0, 262174, 0, 0, 393215, 0, 0, 327710, 0, 0, 458751, 0, 0, 393246, 0, 0, 524287, 0, 0, 458764, 1073741838, 0, 458765, 6, 0, 458766, 6, 0, 458767, 1073741839, 0, 458771, 1073741834, 0, 458772, 1073741839, 0, 458775, 1073741834, 0, 458776, 1073741837, 0, 458782, 0, 0, 589823, 0, 0, 524318, 0, 0, 655359, 0, 0, 589836, 1073741835, 0, 589837, 1073741835, 0, 589838, 1073741835, 0, 589839, 1073741835, 0, 589840, 11, 0, 589841, 11, 0, 589842, 11, 0, 589843, 11, 0, 589844, 11, 0, 589845, 11, 0, 589846, 11, 0, 589847, 11, 0, 589848, 11, 0, 589849, 11, 0, 589854, 0, 0, 720895, 0, 0, 655372, 1073741835, 0, 655373, 1073741835, 0, 655385, 11, 0, 655386, 11, 0, 655390, 0, 0, 786431, 0, 0, 720908, 1073741835, 0, 720909, 1073741835, 0, 720922, 11, 0, 720923, 11, 0, 720926, 0, 0, 851967, 0, 0, 786439, 0, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 0, 0, 786444, 1073741835, 0, 786445, 1073741835, 0, 786462, 0, 0, 917503, 0, 0, 851975, 11, 0, 851976, 11, 0, 851998, 0, 0, 983039, 0, 0, 917511, 11, 0, 917512, 11, 0, 917534, 0, 0, 1048575, 0, 0, 983040, 6, 0, 983041, 6, 0, 983042, 6, 0, 983043, 6, 0, 983044, 6, 0, 983045, 6, 0, 983046, 6, 0, 983047, 6, 0, 983048, 6, 0, 983049, 6, 0, 983050, 6, 0, 983051, 6, 0, 983052, 6, 0, 983053, 6, 0, 983054, 6, 0, 983055, 6, 0, 983056, 6, 0, 983057, 6, 0, 983058, 6, 0, 983059, 6, 0, 983060, 6, 0, 983061, 6, 0, 983062, 8, 0, 983063, 8, 0, 983064, 8, 0, 983065, 8, 0, 983066, 6, 0, 983067, 6, 0, 983068, 6, 0, 983069, 6, 0, 983070, 0, 0, 1114111, 0, 0, 1048606, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1114136, 0, 0, 1114137, 0, 0, 1114138, 0, 0, 1114139, 0, 0, 1114140, 0, 0, 1114141, 0, 0, 1114142, 0, 0 )
 
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="GoldCoin" parent="Coins" instance=ExtResource( 3 )]
-position = Vector2( 235, 469 )
+position = Vector2( 1195, 898 )
+
+[node name="GoldCoin2" parent="Coins" instance=ExtResource( 3 )]
+position = Vector2( 1284, 415 )
+
+[node name="AlienCoin" parent="Coins" instance=ExtResource( 13 )]
+position = Vector2( 1544, 412 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -41,120 +81,202 @@ margin_right = 1141.0
 margin_bottom = 75.0
 
 [node name="EndPortal" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1054, 874 )
+position = Vector2( 626, 898 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1021, 323 )
+position = Vector2( 1550, 872 )
+speed = 100
+moveDist = 50
 
 [node name="Instructions" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Instruction1" type="Label" parent="Instructions"]
-margin_left = 104.0
-margin_top = 801.0
-margin_right = 446.0
-margin_bottom = 834.0
+margin_left = 35.0
+margin_top = 785.0
+margin_right = 377.0
+margin_bottom = 824.0
 custom_fonts/font = ExtResource( 1 )
 text = "Use WASD or the arrow keys to move"
+valign = 3
 autowrap = true
+script = ExtResource( 14 )
 
 [node name="Instruction9" type="Label" parent="Instructions"]
-margin_left = 100.0
-margin_top = 709.0
-margin_right = 442.0
-margin_bottom = 742.0
+margin_left = 383.0
+margin_top = 598.0
+margin_right = 725.0
+margin_bottom = 641.0
 custom_fonts/font = ExtResource( 1 )
 text = "Press W, the up arrow, or space to jump"
+valign = 3
 autowrap = true
+script = ExtResource( 14 )
 
 [node name="Instruction10" type="Label" parent="Instructions"]
-margin_left = 323.0
-margin_top = 624.0
-margin_right = 665.0
-margin_bottom = 675.0
+margin_left = 382.0
+margin_top = 667.0
+margin_right = 724.0
+margin_bottom = 730.0
 custom_fonts/font = ExtResource( 1 )
 text = "the longer you press it, the further you go!"
+valign = 3
 autowrap = true
+script = ExtResource( 14 )
 
 [node name="Instruction11" type="Label" parent="Instructions"]
-margin_left = 799.0
-margin_top = 617.0
-margin_right = 1141.0
-margin_bottom = 668.0
+margin_left = 758.0
+margin_top = 339.0
+margin_right = 1100.0
+margin_bottom = 408.0
 custom_fonts/font = ExtResource( 1 )
 text = "press jump while in the air to double jump"
+valign = 3
 autowrap = true
+script = ExtResource( 14 )
+appearanceOrder = 1
+
+[node name="Instruction3" type="Label" parent="Instructions"]
+margin_left = 1128.0
+margin_top = 236.0
+margin_right = 1406.0
+margin_bottom = 258.0
+custom_fonts/font = ExtResource( 1 )
+text = "collect the coin!"
+valign = 3
+autowrap = true
+script = ExtResource( 14 )
+appearanceOrder = 2
+
+[node name="Instruction4" type="Label" parent="Instructions"]
+margin_left = 1129.0
+margin_top = 276.0
+margin_right = 1441.0
+margin_bottom = 347.0
+custom_fonts/font = ExtResource( 1 )
+text = "you need coins to progress, plus they increase your score"
+valign = 3
+autowrap = true
+script = ExtResource( 14 )
+appearanceOrder = 2
+
+[node name="Instruction5" type="Label" parent="Instructions"]
+margin_left = 1563.0
+margin_top = 299.0
+margin_right = 1837.0
+margin_bottom = 369.0
+custom_fonts/font = ExtResource( 1 )
+text = "alien coins are optional, but boost your score"
+valign = 3
+autowrap = true
+script = ExtResource( 14 )
+appearanceOrder = 3
+
+[node name="Instruction8" type="Label" parent="Instructions"]
+margin_left = 1625.0
+margin_top = 515.0
+margin_right = 1916.0
+margin_bottom = 630.0
+custom_fonts/font = ExtResource( 1 )
+text = "note: Press escape at any time to pause and return to the title screen"
+valign = 3
+autowrap = true
+script = ExtResource( 14 )
+appearanceOrder = 4
 
 [node name="Instruction2" type="Label" parent="Instructions"]
-margin_left = 471.0
-margin_top = 850.0
-margin_right = 724.0
-margin_bottom = 869.0
+margin_left = 1402.0
+margin_top = 729.0
+margin_right = 1655.0
+margin_bottom = 748.0
 custom_colors/font_color = Color( 0.65098, 0.117647, 0.117647, 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "Avoid the enemy"
+valign = 3
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Instruction3" type="Label" parent="Instructions"]
-margin_left = 379.0
-margin_top = 542.0
-margin_right = 657.0
-margin_bottom = 564.0
-custom_fonts/font = ExtResource( 1 )
-text = "collect the coin!"
-autowrap = true
-
-[node name="Instruction4" type="Label" parent="Instructions"]
-margin_left = 706.0
-margin_top = 252.0
-margin_right = 1067.0
-margin_bottom = 313.0
-custom_fonts/font = ExtResource( 1 )
-text = "you need coins to progress, plus they increase your score"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Instruction5" type="Label" parent="Instructions"]
-margin_left = 81.0
-margin_top = 246.0
-margin_right = 442.0
-margin_bottom = 307.0
-custom_fonts/font = ExtResource( 1 )
-text = "alien coins are optional, but boost your score"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Instruction8" type="Label" parent="Instructions"]
-margin_left = 1463.0
-margin_top = 309.0
-margin_right = 1824.0
-margin_bottom = 378.0
-custom_fonts/font = ExtResource( 1 )
-text = "Press escape at any time to pause and return to the title screen"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 14 )
+appearanceOrder = 5
 
 [node name="Instruction6" type="Label" parent="Instructions"]
-margin_left = 2134.0
-margin_top = 879.0
-margin_right = 2495.0
-margin_bottom = 940.0
+margin_left = 1031.0
+margin_top = 655.0
+margin_right = 1392.0
+margin_bottom = 775.0
 custom_fonts/font = ExtResource( 1 )
 text = "once you collect enough coins, the wormhole will open and you can go to the next level!"
+valign = 3
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 14 )
+appearanceOrder = 6
+
+[node name="Instruction7" type="Label" parent="Instructions"]
+margin_left = 765.0
+margin_top = 844.0
+margin_right = 1126.0
+margin_bottom = 941.0
+custom_fonts/font = ExtResource( 1 )
+text = "complete the level within the time limit; leftover time increases your score"
+valign = 3
+autowrap = true
+script = ExtResource( 14 )
+appearanceOrder = 7
+
+[node name="InstructionAreas" type="Node2D" parent="."]
+
+[node name="InstructionArea" parent="InstructionAreas" instance=ExtResource( 15 )]
+position = Vector2( 189, 858 )
+
+[node name="CollisionShape2D" parent="InstructionAreas/InstructionArea" index="0"]
+position = Vector2( 490.5, -291 )
+
+[node name="InstructionArea2" parent="InstructionAreas" instance=ExtResource( 15 )]
+position = Vector2( 601, 539 )
+areaNum = 2
+
+[node name="CollisionShape2D" parent="InstructionAreas/InstructionArea2" index="0"]
+position = Vector2( 403.875, -203 )
+shape = SubResource( 1 )
+
+[node name="InstructionArea3" parent="InstructionAreas" instance=ExtResource( 15 )]
+position = Vector2( 984, 542 )
+areaNum = 3
+
+[node name="CollisionShape2D" parent="InstructionAreas/InstructionArea3" index="0"]
+position = Vector2( 344.75, -226 )
+shape = SubResource( 2 )
+
+[node name="InstructionArea4" parent="InstructionAreas" instance=ExtResource( 15 )]
+position = Vector2( 1338, 742 )
+areaNum = 4
+
+[node name="CollisionShape2D" parent="InstructionAreas/InstructionArea4" index="0"]
+position = Vector2( 427, -259 )
+shape = SubResource( 3 )
+
+[node name="InstructionArea5" parent="InstructionAreas" instance=ExtResource( 15 )]
+position = Vector2( 1414, 981 )
+areaNum = 5
+
+[node name="CollisionShape2D" parent="InstructionAreas/InstructionArea5" index="0"]
+position = Vector2( 394.25, -169.063 )
+shape = SubResource( 4 )
+
+[node name="InstructionArea6" parent="InstructionAreas" instance=ExtResource( 15 )]
+position = Vector2( 1070, 999 )
+areaNum = 6
+
+[node name="CollisionShape2D" parent="InstructionAreas/InstructionArea6" index="0"]
+position = Vector2( 271.5, -198.5 )
+shape = SubResource( 5 )
+
+[node name="InstructionArea7" parent="InstructionAreas" instance=ExtResource( 15 )]
+position = Vector2( 720, 999 )
+areaNum = 7
+
+[node name="CollisionShape2D" parent="InstructionAreas/InstructionArea7" index="0"]
+position = Vector2( 354, -97 )
+shape = SubResource( 6 )
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
@@ -162,7 +284,7 @@ __meta__ = {
 visible = false
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 158, 909 )
+position = Vector2( 142, 874 )
 
 [node name="SPCamera" type="Camera2D" parent="Player"]
 zoom = Vector2( 0.75, 0.75 )
@@ -176,3 +298,11 @@ smoothing_speed = 2.5
 
 [node name="InstanceableAudioPlayer" parent="." instance=ExtResource( 8 )]
 song = ExtResource( 9 )
+
+[editable path="InstructionAreas/InstructionArea"]
+[editable path="InstructionAreas/InstructionArea2"]
+[editable path="InstructionAreas/InstructionArea3"]
+[editable path="InstructionAreas/InstructionArea4"]
+[editable path="InstructionAreas/InstructionArea5"]
+[editable path="InstructionAreas/InstructionArea6"]
+[editable path="InstructionAreas/InstructionArea7"]

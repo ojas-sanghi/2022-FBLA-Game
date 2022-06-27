@@ -5,6 +5,6 @@ public class SPButton : Button
 {
   void OnPlayButtonPressed()
   {
-    SceneChanger.Instance.GoToScene("res://src/levels/Level1.tscn");
+    SceneChanger.Instance.GoToScene("res://src/levels/Level0.tscn");
   }
 }

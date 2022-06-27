@@ -11,6 +11,8 @@ public class Events : Node
   public static event Action timeOver;
   public static event Action mpNextLevel;
 
+  public static event Action<int> instructionAreaHit;
+
   //////////////////////////
 
   public static void publishCoinCollected(BaseCoin coin, int playerId) => coinCollected?.Invoke(coin, playerId);
@@ -20,6 +22,7 @@ public class Events : Node
   public static void publishTimeOver() => timeOver?.Invoke();
   public static void publishMpNextLevel() => mpNextLevel?.Invoke();
 
+  public static void publishInstructionAreahit(int areaNum) => instructionAreaHit?.Invoke(areaNum);
 
   public override void _Ready()
   {

@@ -29,15 +29,17 @@ public class Globals : Node
 
     cameraLimits = new()
     {
+      new() { 1920, 1080 },
       new() { 2600, 1080 },
       new() { 3500, 1080 },
       new() { 1920, 1920 },
     };
 
-    currentLevel = Enums.Levels.Level1;
+    currentLevel = Enums.Levels.Level0;
 
     levels = new Dictionary<Enums.Levels, PackedScene>()
         {
+          { Enums.Levels.Level0, GD.Load<PackedScene>("res://src/levels/Level0.tscn") },
           { Enums.Levels.Level1, GD.Load<PackedScene>("res://src/levels/Level1.tscn") },
           { Enums.Levels.Level2, GD.Load<PackedScene>("res://src/levels/Level2.tscn") },
           { Enums.Levels.Level3, GD.Load<PackedScene>("res://src/levels/Level3.tscn") }

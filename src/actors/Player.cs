@@ -24,7 +24,7 @@ public class Player : Actor
       // set id to 0 if singleplayer; will respond to both wasd and arrow keys
       id = 0;
       // and also enable the child camera
-      GetNode<Camera2D>("SPCamera").Current = true;
+      (FindNode("SPCamera") as Camera2D).Current = true;
     }
   }
 

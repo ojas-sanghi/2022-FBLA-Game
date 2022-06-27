@@ -3,8 +3,8 @@ using Godot.Collections;
 
 public class PlayerInfo : Node
 {
-  public static float coinsScoreMultiplier = 1.5f;
-  public static float timeScoreMultiplier = 1.75f;
+  public static float coinsScoreMultiplier = 2f;
+  public static float timeScoreMultiplier = 1.2f;
 
   public static PlayerInfo Instance;
 
