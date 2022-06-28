@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/new_stellar_inertiaNOVOCALS.mp3-16301abe57d39d5b170922be8edbd330.mp3str"
+
+[deps]
+
+source_file="res://assets/music/new_stellar_inertiaNOVOCALS.mp3"
+dest_files=[ "res://.import/new_stellar_inertiaNOVOCALS.mp3-16301abe57d39d5b170922be8edbd330.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

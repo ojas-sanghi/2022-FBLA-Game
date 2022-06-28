@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/new_not_alone.mp3-d7858e1e4b2e750d608741ad240804a4.mp3str"
+
+[deps]
+
+source_file="res://assets/music/new_not_alone.mp3"
+dest_files=[ "res://.import/new_not_alone.mp3-d7858e1e4b2e750d608741ad240804a4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

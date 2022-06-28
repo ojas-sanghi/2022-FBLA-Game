@@ -8,7 +8,7 @@
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/levels/EndPortal.tscn" type="PackedScene" id=7]
 [ext_resource path="res://InstanceableAudioPlayer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/music/spaceship level.mp3" type="AudioStream" id=9]
+[ext_resource path="res://assets/music/tutorial.mp3" type="AudioStream" id=9]
 [ext_resource path="res://assets/tutorial bg.png" type="Texture" id=10]
 [ext_resource path="res://src/levels/IndividualLevelInfo.cs" type="Script" id=11]
 [ext_resource path="res://assets/tutorial tileset.tres" type="TileSet" id=12]

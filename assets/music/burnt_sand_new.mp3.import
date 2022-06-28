@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/burnt_sand_new.mp3-2cec1f37090ccf01d265b406ff497771.mp3str"
+
+[deps]
+
+source_file="res://assets/music/burnt_sand_new.mp3"
+dest_files=[ "res://.import/burnt_sand_new.mp3-2cec1f37090ccf01d265b406ff497771.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

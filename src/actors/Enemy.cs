@@ -13,12 +13,34 @@ public class Enemy : Area2D
 
   AnimatedSprite sprite;
 
+  Tween tweenUp;
+  Tween tweenDown;
+
   public override void _Ready()
   {
     sprite = GetNode<AnimatedSprite>("AnimatedSprite");
 
     rightEnd = Position.x + moveDist;
     leftEnd = Position.x - moveDist;
+
+    var newUpPos = new Vector2(this.Position.x, this.Position.y + 100);
+    var newDownPos = new Vector2(this.Position.x, 0);
+
+    tweenUp = new Tween();
+    tweenDown = new Tween();
+    AddChild(tweenUp);
+    AddChild(tweenDown);
+    
+    // hit the bottom, frame 2
+    // insert frame1
+    // starts going up, frame 0
+    // at apex point he becomes frame 1
+    // falls down, becomes frame 0
+    // insert frame1
+    // repeat
+
+    // up -> ease out expo
+    // tween.InterpolateProperty(this, "position", this.Position, newPos, );
   }
 
   public override void _Process(float delta)
