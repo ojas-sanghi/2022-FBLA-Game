@@ -14,7 +14,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45.875, 64.125 )
+extents = Vector2( 38.75, 64.125 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "bob"
@@ -38,13 +38,14 @@ scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 1.00001 )
 scale = Vector2( 6.45, 6.45 )
 frames = SubResource( 2 )
 animation = "boing"
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
