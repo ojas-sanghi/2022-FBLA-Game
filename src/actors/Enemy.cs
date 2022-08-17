@@ -30,17 +30,6 @@ public class Enemy : Area2D
     tweenDown = new Tween();
     AddChild(tweenUp);
     AddChild(tweenDown);
-    
-    // hit the bottom, frame 2
-    // insert frame1
-    // starts going up, frame 0
-    // at apex point he becomes frame 1
-    // falls down, becomes frame 0
-    // insert frame1
-    // repeat
-
-    // up -> ease out expo
-    // tween.InterpolateProperty(this, "position", this.Position, newPos, );
   }
 
   public override void _Process(float delta)

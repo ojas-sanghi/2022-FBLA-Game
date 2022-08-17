@@ -19,6 +19,7 @@ public class Leaderboard : ScrollContainer
     constructList();
   }
 
+  // update list whenever leaderboard is shown
   void OnLeaderboardVisibilityChanged()
   {
     constructList();
@@ -27,6 +28,7 @@ public class Leaderboard : ScrollContainer
   void constructList()
   {
     // get a list of all the existing entries and then delete them all
+    // from there, we make a fresh list of scores from scratch 
     List<LeaderboardLabel> labelChildren = labels.GetChildren().Cast<LeaderboardLabel>().ToList<LeaderboardLabel>();
     labelChildren.ForEach(child => child.QueueFree());
 
@@ -36,7 +38,7 @@ public class Leaderboard : ScrollContainer
       List<KeyValuePair<string, int>> sortedScores = Globals.Instance.highScores.OrderByDescending(x => x.Value).ToList();
       foreach (KeyValuePair<string, int> highScore in sortedScores)
       {
-        // make a new object from ecah and add it to the container
+        // make a new object from each and add it to the container
         LeaderboardLabel label = new LeaderboardLabel(highScore.Key, highScore.Value);
         labels.AddChild(label);
       }

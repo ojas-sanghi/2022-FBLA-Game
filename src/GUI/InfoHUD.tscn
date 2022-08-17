@@ -20,11 +20,12 @@ alignment = 1
 [node name="SPHUD" type="VBoxContainer" parent="SPHUDs"]
 margin_left = 861.0
 margin_right = 1008.0
-margin_bottom = 106.0
+margin_bottom = 107.0
 custom_constants/separation = 20
 
 [node name="ScoreCounter" parent="SPHUDs/SPHUD" instance=ExtResource( 1 )]
 margin_left = 0.0
+margin_top = 0.0
 margin_right = 147.0
 margin_bottom = 15.0
 playerId = 0
@@ -35,9 +36,11 @@ margin_right = 147.0
 margin_bottom = 50.0
 
 [node name="CoinsCounter" parent="SPHUDs/SPHUD" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 70.0
-margin_right = 121.0
-margin_bottom = 106.0
+margin_right = 130.0
+margin_bottom = 107.0
 size_flags_horizontal = 0
 playerId = 0
 

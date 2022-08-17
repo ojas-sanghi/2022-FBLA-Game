@@ -21,6 +21,16 @@ public class CoinsCounter : HBoxContainer
     Events.playerDied -= UpdateText;
   }
 
+
+
+  public override void _Process(float delta)
+  {
+    if (Globals.Instance.isMultiplayer)
+    {
+      UpdateText();
+    }
+  }
+
   void UpdateText(BaseCoin coin, int id)
   {
     UpdateText(id);
